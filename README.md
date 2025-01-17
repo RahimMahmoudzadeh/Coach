@@ -1,20 +1,20 @@
 # Welcome to Coach!
 <div align="center">  
-  <image height= "100" width ="100" src="asset/logo.png"/></image>
+  <image height= "100" width ="100" src="assets/logo.png"/></image>
   <br>  
   <strong>Coach</strong>  
 </div>
 <br>
 
 ![Static Badge](https://img.shields.io/badge/License-GPL--3.0-brightgreen)
-[![Contributions Highly Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/RahimMahmoudzadeh/Yadino/issues)
-<a href="https://android-arsenal.com/api?level=26"><img alt="API" src="https://img.shields.io/badge/API-26%2B-brightgreen.svg?style=flat"/></a>
+[![Contributions Highly Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/RahimMahmoudzadeh/Coach)
+<a href="https://android-arsenal.com/api?level=27"><img alt="API" src="https://img.shields.io/badge/API-26%2B-brightgreen.svg?style=flat"/></a>
 <img alt="Static Badge" src="https://img.shields.io/badge/GitHub-RahimMahmoudzadeh-%60Z%60?logo=github&color=blue&link=https%3A%2F%2Fgithub.com%2FRahimMahmoudzadeh">
-![GitHub Repo stars](https://img.shields.io/github/stars/RahimMahmoudzadeh/Yadino)
-![GitHub forks](https://img.shields.io/github/forks/RahimMahmoudzadeh/Yadino)
+![GitHub Repo stars](https://img.shields.io/github/stars/RahimMahmoudzadeh/Coach)
+![GitHub forks](https://img.shields.io/github/forks/RahimMahmoudzadeh/Coach)
 
 ## 📜 Description
-Hi! Yadino is a ToDo app the use of MVI Architecture Pattern And Clean Architecture with Jetpack Compose by following Material-3 guidelines along with other MAD libraries such as Dagger-Hilt, Room Database, Coroutines, Navigation etc. for building Android Apps
+Hi! Coach is a comprehensive fitness application designed to provide personalized workout and diet plans using AI-driven algorithms.the use of MVI Architecture Pattern And Clean Architecture with Jetpack Compose by following Material-3 guidelines along with other MAD libraries . The platform ensures robust security, real-time data synchronization, and seamless integration across mobile and backend systems.
 
 ## 🛠 Built With  
 |  Architecture   |MVI Architecture Pattern |  
@@ -23,7 +23,6 @@ Hi! Yadino is a ToDo app the use of MVI Architecture Pattern And Clean Architect
 | 💉 DI                | [Dagger-Hilt](https://developer.android.com/training/dependency-injection/hilt-android)                        |             |  
 | :floppy_disk: Local Database      | [Room Database](https://developer.android.com/topic/libraries/architecture/room)                   |  
 | :compass: Navigation       | [Compose Destinations Navigation](https://developer.android.com/jetpack/compose/navigation) |  
-| :building_construction: Persistent Background Work  | [AlarmManager](https://developer.android.com/reference/android/app/AlarmManager) |  
 | :thread: Asynchronous Work     | [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)|  
 <br>
 
@@ -36,30 +35,24 @@ Hi! Yadino is a ToDo app the use of MVI Architecture Pattern And Clean Architect
 ## :iphone: Screenshots
 <table style="width:100%">
   <tr>
+    <th>Splash Screen</th>
     <th>Home Screen</th>
-    <th>Routine Screen</th> 
-    <th>Note Screen</th> 
+    <th>Music Screen</th> 
+    <th>Practice Screen</th> 
+    <th>Activity list Screen</th> 
   </tr>
   <tr>
-    <td><img src = "asset/home_light.png" width=240/></td> 
-    <td><img src = "asset/routine_light.png" width=240/></td>
-    <td><img src = "asset/note_light.png" width=240/></td>
-  </tr>
-    <tr>
-    <th>Home Screen</th>
-    <th>Routine Screen</th> 
-    <th>Note Screen</th> 
-  </tr>
-  <tr>
-    <td><img src = "asset/home_dark.png" width=240/></td> 
-    <td><img src = "asset/routine_dark.png" width=240/></td>
-    <td><img src = "asset/note_dark.png" width=240/></td>
+    <td><img src = "assets/Splash Screen.png" width=240/></td> 
+    <td><img src = "asset/home.png" width=240/></td>
+    <td><img src = "assets/music.png" width=240/></td>
+    <td><img src = "assets/practice.png" width=240/></td>
+    <td><img src = "assets/Activity_list.png" width=240/></td>
   </tr>
 </table>
 <br>
 
 ## 🤝 Contribution
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Contributions are welcome! If you have any feedback or suggestions, please don't hesitate to let us know. We appreciate your contributions and support. Also if you find a bug or would like to create a new feature, please submit a pull request.Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## License
 
