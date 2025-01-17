@@ -43,7 +43,7 @@ Hi! Coach is a comprehensive fitness application designed to provide personalize
   </tr>
   <tr>
     <td><img src = "assets/Splash Screen.png" width=240/></td> 
-    <td><img src = "asset/home.png" width=240/></td>
+    <td><img src = "assets/home.png" width=240/></td>
     <td><img src = "assets/music.png" width=240/></td>
     <td><img src = "assets/practice.png" width=240/></td>
     <td><img src = "assets/Activity_list.png" width=240/></td>
