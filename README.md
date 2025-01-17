@@ -33,7 +33,7 @@ Hi! Yadino is a ToDo app the use of MVI Architecture Pattern And Clean Architect
 - **🌗 Dark/Light Mode:** Toggle between dark and light themes
 - **🎨 Dynamic Color:** Enable or disable dynamic color settings
 
-## :iphone: Screenshots (Dark and Light Theme)
+## :iphone: Screenshots
 <table style="width:100%">
   <tr>
     <th>Home Screen</th>
