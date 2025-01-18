@@ -7,11 +7,12 @@
 <br>
 
 ![Static Badge](https://img.shields.io/badge/License-GPL--3.0-brightgreen)
-[![Contributions Highly Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/RahimMahmoudzadeh/Coach)
-<a href="https://android-arsenal.com/api?level=27"><img alt="API" src="https://img.shields.io/badge/API-26%2B-brightgreen.svg?style=flat"/></a>
+[![Contributions Highly Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/RahimMahmoudzadeh/Coach/blob/master/CONTRIBUTING.md)
+<a href="https://android-arsenal.com/api?level=27"><img alt="API" src="https://img.shields.io/badge/API-27%2B-brightgreen.svg?style=flat"/></a>
 <img alt="Static Badge" src="https://img.shields.io/badge/GitHub-RahimMahmoudzadeh-%60Z%60?logo=github&color=blue&link=https%3A%2F%2Fgithub.com%2FRahimMahmoudzadeh">
 ![GitHub Repo stars](https://img.shields.io/github/stars/RahimMahmoudzadeh/Coach)
 ![GitHub forks](https://img.shields.io/github/forks/RahimMahmoudzadeh/Coach)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg?style=flat&logo=kotlin)](https://kotlinlang.org)
 
 ## 📜 Description
 Hi! Coach is a comprehensive fitness application designed to provide personalized workout and diet plans using AI-driven algorithms.the use of MVI Architecture Pattern And Clean Architecture with Jetpack Compose by following Material-3 guidelines along with other MAD libraries . The platform ensures robust security, real-time data synchronization, and seamless integration across mobile and backend systems.
@@ -24,14 +25,11 @@ Hi! Coach is a comprehensive fitness application designed to provide personalize
 | :floppy_disk: Local Database      | [Room Database](https://developer.android.com/topic/libraries/architecture/room)                   |  
 | :compass: Navigation       | [Compose Destinations Navigation](https://developer.android.com/jetpack/compose/navigation) |  
 | :thread: Asynchronous Work     | [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)|  
-| :imageloading Image Loading     | [Coil](https://coil-kt.github.io/coil/)|  
+| 🖼️ Image Loading     | [Coil](https://coil-kt.github.io/coil/)|  
 <br>
 
 ## 🚀 Features
-- **➕ Add, View, Update & Delete Routine and Note**
-- **🔔 Notifications:** Receive notifications at the time you set for the routine
-- **🌗 Dark/Light Mode:** Toggle between dark and light themes
-- **🎨 Dynamic Color:** Enable or disable dynamic color settings
+  Loading...
 
 ## :iphone: Screenshots
 <table style="width:100%">
