@@ -4,7 +4,7 @@ plugins {
     libs.plugins.coach.run {
         alias(android.application)
         alias(android.application.compose)
-        alias(android.hilt)
+        alias(android.di)
         alias(android.room)
     }
 }

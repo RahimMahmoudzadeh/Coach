@@ -11,7 +11,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             applyPlugins {
-                listOf("coach.android.library", "coach.android.hilt")
+                listOf("coach.android.library", "coach.android.di")
             }
             androidGradle {
                 defaultConfig {
@@ -22,10 +22,6 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
 
             dependencies {
                 add("implementation", versionCatalog.findLibrary("androidx.tracing.ktx").get())
-                add(
-                    "implementation",
-                    versionCatalog.findLibrary("hilt.navigation.compose").get()
-                )
                 add("api", project(":library:designsystem"))
                 add("api", project(":library:navigation"))
                 add("api", project(":core:base"))

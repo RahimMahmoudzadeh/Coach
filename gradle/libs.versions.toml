@@ -7,10 +7,6 @@ kotlinxImmutableCollection = "0.3.8"
 compose-bom = "2025.01.00"
 activity-compose = "1.10.0"
 
-#navigation
-hilt = "2.53.1"
-hilt_navigation_compose = "1.2.0"
-
 #core
 androidDesugarJdkLibs = "2.1.4"
 androidx-core = "1.15.0"
@@ -48,6 +44,8 @@ jetbrainsKotlinJvm = "2.1.0"
 appcompat = "1.7.0"
 material = "1.12.0"
 
+#koin
+koin-bom = "4.1.0-Beta3"
 
 [libraries]
 #core
@@ -80,10 +78,11 @@ room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "androidx
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "androidx-room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "androidx-room" }
 
-#hilt
-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt_navigation_compose" }
+#koin
+koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin-bom" }
+koin-core = { module = "io.insert-koin:koin-core" }
+koin-android = { module = "io.insert-koin:koin-android" }
+koin-compose = { module = "io.insert-koin:koin-androidx-compose-navigation" }
 
 #navigation
 androidx-navigation-ui = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "androidx-navigation" }
@@ -138,7 +137,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 compose = ["androidx-compose-activity", "androidx-material3-android", "lifecycle-runtime-compose",
     "lifecycle-viewmodel-compose", "androidx-navigation", "lottie-compose"]
 room = ["room-runtime", "room-ktx"]
-hilt = ["hilt-android", "hilt-navigation-compose"]
+koin = ["koin-core","koin-android","koin-compose"]
 navigation = ["androidx-navigation-ui"]
 accompanist = ["accompanist-pager", "accompanist-pager-indicators", "accompanist-permissions", "accompanist-systemuicontroller"]
 test = ["androidx-test-ext", "androidx-test-espresso", "androidx-compose-ui-test"]
@@ -149,7 +148,6 @@ vico = ["vico-compose", "vico-compose-m3"]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
 com-android-library = { id = "com.android.library", version.ref = "agp" }
@@ -163,7 +161,7 @@ coach-android-application-compose = { id = "coach.android.application.compose", 
 coach-android-application-firebase = { id = "coach.android.application.firebase", version = "unspecified" }
 coach-android-application-flavors = { id = "coach.android.application.flavors", version = "unspecified" }
 coach-android-feature = { id = "coach.android.feature", version = "unspecified" }
-coach-android-hilt = { id = "coach.android.hilt", version = "unspecified" }
+coach-android-di = { id = "coach.android.di", version = "unspecified" }
 coach-android-library = { id = "coach.android.library", version = "unspecified" }
 coach-android-library-compose = { id = "coach.android.library.compose", version = "unspecified" }
 coach-android-room = { id = "coach.android.room", version = "unspecified" }

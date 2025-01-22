@@ -45,9 +45,9 @@ gradlePlugin {
             id = "coach.android.feature"
             implementationClass = "plugins.AndroidFeatureConventionPlugin"
         }
-        register("androidHilt") {
-            id = "coach.android.hilt"
-            implementationClass = "plugins.AndroidHiltConventionPlugin"
+        register("androidKoin") {
+            id = "coach.android.di"
+            implementationClass = "plugins.AndroidKoinConventionPlugin"
         }
         register("androidRoom") {
             id = "coach.android.room"
