@@ -3,6 +3,8 @@ ksp = "2.1.0-1.0.29"
 kotlin = "2.1.0"
 kotlinxImmutableCollection = "0.3.8"
 
+ktor = "3.0.3"
+
 #compose
 compose-bom = "2025.01.00"
 activity-compose = "1.10.0"
@@ -46,6 +48,7 @@ material = "1.12.0"
 
 #koin
 koin-bom = "4.1.0-Beta3"
+
 
 [libraries]
 #core
@@ -118,6 +121,13 @@ androidx-compose-ui-test = { group = "androidx.compose.ui", name = "ui-test-juni
 #splash
 androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "androidxCoreSplashscreen" }
 
+#ktor
+ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
+ktor-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.ref = "ktor" }
+ktor-contentNegotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor" }
+
 #vico
 vico-compose = { group = "com.patrykandpatrick.vico", name = "compose", version.ref = "vico" }
 vico-compose-m3 = { group = "com.patrykandpatrick.vico", name = "compose-m3", version.ref = "vico" }
@@ -142,6 +152,7 @@ navigation = ["androidx-navigation-ui"]
 accompanist = ["accompanist-pager", "accompanist-pager-indicators", "accompanist-permissions", "accompanist-systemuicontroller"]
 test = ["androidx-test-ext", "androidx-test-espresso", "androidx-compose-ui-test"]
 vico = ["vico-compose", "vico-compose-m3"]
+ktor = ["ktor-core", "ktor-okhttp", "ktor-contentNegotiation", "ktor-serialization", "ktor-logging"]
 
 
 [plugins]
