@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Coach</string>
+    <string name="home">صفحه اصلی</string>
+    <string name="label">همراه هوشمند شما</string>
+    <string name="label2">هر تمرین، یک قدم به سوی موفقیت</string>
+    <string name="profile">پروفایل شخصی</string>
+    <string name="message">پیغام ها</string>
+    <string name="language">زبان</string>
+    <string name="support">پشتیبانی</string>
+    <string name="notification">اعلانات</string>
+    <string name="favorite">علاقه مندی ها</string>
 </resources>

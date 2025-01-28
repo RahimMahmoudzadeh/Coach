@@ -83,9 +83,9 @@ room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "
 
 #koin
 koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin-bom" }
-koin-core = { module = "io.insert-koin:koin-core" }
-koin-android = { module = "io.insert-koin:koin-android" }
-koin-compose = { module = "io.insert-koin:koin-androidx-compose-navigation" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin-bom" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin-bom" }
+koin-compose = { module = "io.insert-koin:koin-androidx-compose-navigation", version.ref = "koin-bom" }
 
 #navigation
 androidx-navigation-ui = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "androidx-navigation" }
