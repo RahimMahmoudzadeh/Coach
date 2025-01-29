@@ -15,7 +15,8 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 listOf(
                     versionCatalog.findPlugin("com.android.library").get().get().pluginId,
                     versionCatalog.findPlugin("kotlinAndroid").get().get().pluginId,
-                    versionCatalog.findPlugin("kotlin-parcelize").get().get().pluginId
+                    versionCatalog.findPlugin("kotlin-parcelize").get().get().pluginId,
+                    versionCatalog.findPlugin("serialization").get().get().pluginId,
                 )
             }
             androidGradle {

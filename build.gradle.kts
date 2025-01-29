@@ -9,5 +9,6 @@ plugins {
         alias(androidx.room) apply false
         alias(google.services) apply false
         alias(compose.compiler) apply false
+        alias(serialization) apply false
     }
 }

@@ -11,37 +11,32 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.rahim.coach.navigation.NavigationComponent
 import com.rahim.coach.ui.theme.CoachTheme
+import com.rahim.home.Home
+import com.rahim.navigation.Destinations
+import com.rahim.navigation.component.BottomNavigationBar
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val navController = rememberNavController()
             CoachTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                Scaffold(modifier = Modifier.fillMaxSize(), bottomBar = {
+                    BottomNavigationBar(
+                        navController = navController,
+                    )
+                }) { innerPadding ->
+                    NavigationComponent(
+                        innerPadding = innerPadding,
+                        navController = navController,
+                        startDestination = Home
                     )
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    CoachTheme {
-        Greeting("Android")
     }
 }

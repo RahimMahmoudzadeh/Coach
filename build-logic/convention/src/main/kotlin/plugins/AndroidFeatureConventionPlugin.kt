@@ -13,13 +13,6 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             applyPlugins {
                 listOf("coach.android.library", "coach.android.di")
             }
-            androidGradle {
-                defaultConfig {
-                    testInstrumentationRunner =
-                        "com.fanimo.convention.core.testing.EleTestRunner"
-                }
-            }
-
             dependencies {
                 add("implementation", versionCatalog.findLibrary("androidx.tracing.ktx").get())
                 add("api", project(":library:designsystem"))
