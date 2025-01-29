@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.rahim.feature"
+    namespace = "com.rahim.feature.register"
 }
 dependencies {
     projects.run {
