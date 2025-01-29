@@ -1,4 +1,4 @@
-package com.rahim.coach.ui.theme
+package com.rahim.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 
