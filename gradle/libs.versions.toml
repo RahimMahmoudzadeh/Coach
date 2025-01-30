@@ -1,6 +1,6 @@
 [versions]
 ksp = "2.1.10-1.0.29"
-kotlin = "2.1.0"
+kotlin = "2.1.10"
 kotlinxImmutableCollection = "0.3.8"
 
 ktor = "3.0.3"
