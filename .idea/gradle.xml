@@ -33,7 +33,7 @@
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/domain/home" />
             <option value="$PROJECT_DIR$/feature" />
-            <option value="$PROJECT_DIR$/feature/home" />
+            <option value="$PROJECT_DIR$/feature/register" />
             <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/library/designsystem" />
             <option value="$PROJECT_DIR$/library/navigation" />
