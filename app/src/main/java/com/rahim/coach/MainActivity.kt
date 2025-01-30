@@ -9,9 +9,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.rahim.coach.navigation.NavigationComponent
-import com.rahim.designsystem.theme.CoachTheme
+import com.rahim.coach.library.designsystem.theme.CoachTheme
 import com.rahim.home.Home
-import com.rahim.navigation.component.BottomNavigationBar
+import com.rahim.coach.library.navigation.component.BottomNavigationBar
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
