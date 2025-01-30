@@ -2,7 +2,6 @@
 <div align="center">  
   <image height= "100" width ="100" src="assets/logo.png"/></image>
   <br>  
-  <strong>Coach</strong>  
 </div>
 <br>
 
