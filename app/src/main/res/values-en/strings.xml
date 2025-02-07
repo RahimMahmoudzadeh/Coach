@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Coach</string>
+    <string name="favorite">Favorites</string>
+    <string name="notification">Notification</string>
+    <string name="support">Support</string>
+    <string name="language">Language</string>
+    <string name="message">Messages</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
+    <string name="exit">Exit</string>
+</resources>

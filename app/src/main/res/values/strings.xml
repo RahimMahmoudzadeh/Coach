@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Coach</string>
+    <string name="favorite">علاقه مندی ها</string>
+    <string name="notification">اعلانات</string>
+    <string name="support">پشتیبانی</string>
+    <string name="language">زبان</string>
+    <string name="message">پیغام ها</string>
+    <string name="profile">پروفایل شخصی</string>
+    <string name="home">صفحه اصلی</string>
+    <string name="exit">خروج از حساب</string>
 </resources>
