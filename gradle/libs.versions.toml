@@ -6,7 +6,7 @@ kotlinxImmutableCollection = "0.3.8"
 ktor = "3.0.3"
 
 #compose
-compose-bom = "2025.01.01"
+compose-bom = "2025.02.00"
 activity-compose = "1.10.0"
 
 #core
