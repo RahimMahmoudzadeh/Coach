@@ -10,7 +10,7 @@ compose-bom = "2025.02.00"
 activity-compose = "1.10.0"
 
 #core
-androidDesugarJdkLibs = "2.1.4"
+androidDesugarJdkLibs = "2.1.5"
 androidx-core = "1.15.0"
 
 androidx-lifecycle = "2.8.7"
