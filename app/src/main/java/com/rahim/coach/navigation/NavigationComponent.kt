@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import com.rahim.coach.feature.register.home.homeScreen
 
 @Composable
 fun NavigationComponent(
@@ -14,6 +15,6 @@ fun NavigationComponent(
     innerPadding: PaddingValues,
 ) {
     NavHost(navController, startDestination = startDestination, Modifier.padding(innerPadding)) {
-//        homeScreen()
+        homeScreen()
     }
 }

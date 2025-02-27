@@ -36,15 +36,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rahim.coach.feature.home.R
+import com.rahim.coach.feature.register.home.components.ActivityCard
 import com.rahim.coach.feature.register.home.components.CustomOvalBottomShapeContainer
 import com.rahim.coach.feature.register.home.components.FoodCardList
-import com.rahim.coach.feature.register.home.components.ActivityCard
 import com.rahim.coach.feature.register.home.components.HighlightItem
 import com.rahim.coach.feature.register.home.components.HighlightsSection
 import com.rahim.coach.feature.register.home.components.HomeConstants
 import com.rahim.coach.feature.register.home.components.InteractiveArcCarousel
 import com.rahim.coach.feature.register.home.components.PromoPager
 import com.rahim.coach.feature.register.home.components.StripedTitle
+import com.rahim.coach.library.designsystem.base.LocalSize
+import com.rahim.coach.library.designsystem.base.LocalSpacing
 import com.rahim.coach.library.designsystem.theme.CoachTheme
 import kotlin.math.max
 
@@ -56,11 +58,14 @@ internal fun HomeRoute() {
 
 @Composable
 private fun HomeScreen() {
+
     val configuration = LocalConfiguration.current
+    val size = LocalSize.current
+
+    val scrollState = rememberScrollState()
     val screenWidth = configuration.screenWidthDp
     val screenHeight = configuration.screenHeightDp
-    val scrollState = rememberScrollState()
-    val ovalHeight = (max(screenHeight, screenWidth) * 0.73)
+    val ovalHeight = (max(screenHeight, screenWidth) * 0.52)
 
     val primaryArcCarouselItems = remember {
         mutableStateOf(HomeConstants.primaryArcCarouselItemsSample)
@@ -79,7 +84,8 @@ private fun HomeScreen() {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(ovalHeight.dp),
-            backgroundColor = HomeConstants.HomeColors.CoachGreen
+            backgroundColor = HomeConstants.HomeColors.CoachGreen,
+            x1 = 2f, y1 = 1.1f, x2 = 0f, y2 = 2f
         ) {
 
             Column(
@@ -87,111 +93,9 @@ private fun HomeScreen() {
                     .align(Alignment.TopCenter),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                ) {
-                    // App Icon - Middle Icon
-                    Column(
-                        modifier = Modifier
-                            .align(Alignment.TopCenter),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Icon(
-                            modifier = Modifier
-                                .padding(top = 20.dp)
-                                .size(width = 72.dp, height = 87.dp),
-                            imageVector = ImageVector.vectorResource(com.rahim.coach.library.designsystem.R.drawable.ic_app_icon),
-                            contentDescription = "app logo",
-                            tint = Color.White
-                        )
-
-                        Spacer(
-                            modifier = Modifier
-                                .height(8.dp)
-                        )
-
-                        Text(
-                            text = "Your smart companion",
-                            style = TextStyle(
-                                fontFamily = HomeConstants.HomeFont.inter,
-                                fontWeight = FontWeight.SemiBold,
-                                fontSize = 16.sp
-                            ),
-                            color = Color.White
-                        )
-
-                        Spacer(
-                            modifier = Modifier
-                                .height(8.dp)
-                        )
-
-
-                    }
-
-
-                    // Menu and Settings
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(24.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-
-                        Box(
-                            modifier = Modifier
-                                .size(40.dp)
-                                .background(
-                                    color = Color.White,
-                                    shape = RoundedCornerShape(12.dp)
-                                )
-                                .border(
-                                    width = 1.dp,
-                                    color = HomeConstants.HomeColors.BorderColor,
-                                    shape = RoundedCornerShape(12.dp)
-                                ),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Icon(
-                                modifier = Modifier
-                                    .size(24.dp),
-                                imageVector = ImageVector.vectorResource(R.drawable.menu),
-                                contentDescription = "app logo",
-                                tint = HomeConstants.HomeColors.IconColor
-                            )
-                        }
-
-
-
-                        Box(
-                            modifier = Modifier
-                                .size(40.dp)
-                                .background(
-                                    color = Color.White,
-                                    shape = RoundedCornerShape(12.dp)
-                                )
-                                .border(
-                                    width = 1.dp,
-                                    color = HomeConstants.HomeColors.BorderColor,
-                                    shape = RoundedCornerShape(12.dp)
-                                ),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Icon(
-                                modifier = Modifier
-                                    .size(24.dp),
-                                imageVector = ImageVector.vectorResource(R.drawable.setting_2),
-                                contentDescription = "app logo",
-                                tint = HomeConstants.HomeColors.IconColor
-                            )
-                        }
-                    }
-                }
-
-
                 Spacer(
                     modifier = Modifier
-                        .height(60.dp)
+                        .height(size.extraExtraExtraExtraHuge)
                 )
                 InteractiveArcCarousel(
                     modifier = Modifier,
@@ -223,7 +127,11 @@ private fun HomeScreen() {
                 .height(130.dp),
             items = listOf(
                 HighlightItem(R.drawable.ic_muscle, "exercises"),
-                HighlightItem(R.drawable.ic_measuring_tape, "size", isSelected = true), // Just an example
+                HighlightItem(
+                    R.drawable.ic_measuring_tape,
+                    "size",
+                    isSelected = true
+                ), // Just an example
                 HighlightItem(R.drawable.ic_gym_report, "program"),
                 HighlightItem(R.drawable.ic_earphone, "music"),
                 HighlightItem(R.drawable.ic_boxing_glove, "exercise"),

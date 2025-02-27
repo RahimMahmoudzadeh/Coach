@@ -8,8 +8,3 @@ plugins {
 android {
     namespace = "com.rahim.coach.feature.home"
 }
-dependencies {
-    projects.run {
-
-    }
-}

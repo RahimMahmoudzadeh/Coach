@@ -14,19 +14,18 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 fun CustomOvalBottomShapeContainer(
     modifier: Modifier = Modifier,
     backgroundColor: Color = Color.White,
+    x1: Float, y1: Float, x2: Float, y2: Float,
     content: @Composable BoxScope.() -> Unit,
 ) {
     Box(
         modifier = modifier
-            .fillMaxSize()
             .drawBehind {
                 drawPath(
-                    path = createOvalBottomPath(),
+                    path = createOvalBottomPath(x1,y1,x2,y2),
                     color = backgroundColor
                 )
             }
     ) {
-
         content()
     }
 }
@@ -58,16 +57,16 @@ fun CustomOvalBottomShapeContainer(
  * 4. A close call to connect the path to the origin (0,0)
  *
  */
-private fun DrawScope.createOvalBottomPath(): Path {
+private fun DrawScope.createOvalBottomPath(x1: Float, y1: Float, x2: Float, y2: Float): Path {
     val path = Path()
     path.moveTo(0f, 0f) // Top-left corner
     path.lineTo(size.width, 0f) // Top-right corner
     path.lineTo(size.width, size.height - size.width / 2) // Bottom-right corner (before oval)
     path.quadraticTo(
-        x1 = size.width / 2,
-        y1 = size.height / 1.1f,
-        x2 = 0f,
-        y2 = size.height - size.width / 2
+        x1 = size.width / x1,
+        y1 = size.height/ y1,
+        x2 = x2,
+        y2 = size.height - size.width / y2
     ) // Oval bottom-left
     path.close()
     return path

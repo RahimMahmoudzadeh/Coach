@@ -4,6 +4,7 @@ import org.gradle.kotlin.dsl.assign
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 import org.jetbrains.kotlin.compose.compiler.gradle.ComposeCompilerGradlePluginExtension
+import org.jetbrains.kotlin.compose.compiler.gradle.ComposeFeatureFlag
 
 /**
  * Configure Compose-specific options
@@ -20,7 +21,7 @@ internal fun Project.configureAndroidCompose(
             val bom = versionCatalog.findLibrary("androidx-compose-bom").get()
             val compose = versionCatalog.findBundle("compose").get()
             add("implementation", platform(bom))
-            add("implementation",compose)
+            add("implementation", compose)
             add("androidTestImplementation", platform(bom))
             add("implementation", versionCatalog.findLibrary("ui-tooling").get())
         }
@@ -34,6 +35,7 @@ internal fun Project.configureAndroidCompose(
     }
 
     extensions.configure<ComposeCompilerGradlePluginExtension> {
+//        featureFlags = setOf(ComposeFeatureFlag.StrongSkipping)
         enableStrongSkippingMode = true
     }
 }

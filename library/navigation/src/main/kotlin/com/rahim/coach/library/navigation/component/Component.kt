@@ -7,53 +7,82 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
-import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
+import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
-import com.rahim.coach.library.navigation.BottomNavItem
+import com.rahim.coach.library.designsystem.R
+import com.rahim.coach.library.navigation.Destinations
+import com.rahim.coach.library.navigation.Destinations.Home
+
+data class BottomNavigationRoute<T : Any>(
+    val name: String,
+    val route: T,
+    val icon: ImageVector,
+)
 
 @Composable
 fun BottomNavigationBar(
     navController: NavHostController,
+    navBackStackEntry: NavBackStackEntry?,
 ) {
     val screenItems = listOf(
-        BottomNavItem.Home,
-        BottomNavItem.Bag,
-        BottomNavItem.Search,
-        BottomNavItem.Profile,
+        BottomNavigationRoute(
+            stringResource(R.string.home),
+            Home,
+            ImageVector.vectorResource(com.rahim.coach.library.navigation.R.drawable.ic_home)
+        ),
+        BottomNavigationRoute(
+            stringResource(R.string.bag),
+            Destinations.Bag,
+            ImageVector.vectorResource(com.rahim.coach.library.navigation.R.drawable.ic_bag)
+        ),
+        BottomNavigationRoute(
+            stringResource(R.string.search),
+            Destinations.Search,
+            ImageVector.vectorResource(com.rahim.coach.library.navigation.R.drawable.ic_search_normal)
+        ),
+        BottomNavigationRoute(
+            stringResource(R.string.profile),
+            Destinations.Profile,
+            ImageVector.vectorResource(com.rahim.coach.library.navigation.R.drawable.ic_user)
+        ),
     )
+
+    val currentDestination = navBackStackEntry?.destination
     NavigationBar(
-        containerColor = MaterialTheme.colorScheme.onBackground,
+        containerColor = MaterialTheme.colorScheme.primary,
     ) {
         screenItems.forEach { screen ->
+            val currentRoute = currentDestination?.route?.split(".")
+            val isCurrentRoute = currentRoute?.find {
+                it == screen.route.toString()
+            } != null
+
             NavigationBarItem(
                 colors = NavigationBarItemDefaults.colors(
-                    indicatorColor = Color.Transparent
+                    indicatorColor = MaterialTheme.colorScheme.onPrimary,
                 ),
                 onClick = {
                     navController.navigateSingleTopTo(screen.route)
                 },
                 icon = {
                     Icon(
-                        tint = MaterialTheme.colorScheme.secondary,
-                        painter = painterResource(
-                            id = screen.icon?:0
-                        ),
-                        contentDescription = screen.route
+                        tint = Color.White,
+                        imageVector = screen.icon,
+                        contentDescription = screen.name
                     )
                 },
-                selected = navController.currentDestination?.hierarchy?.any {
-                    it.route == screen.route
-                } == true,
+                selected = isCurrentRoute,
             )
         }
     }
-
 }
 
-fun NavHostController.navigateSingleTopTo(route: String) =
-    this.navigate(route) {
+fun <T : Any> NavHostController.navigateSingleTopTo(route: T) {
+    navigate(route) {
         popUpTo(
             this@navigateSingleTopTo.graph.findStartDestination().id
         ) {
@@ -62,3 +91,4 @@ fun NavHostController.navigateSingleTopTo(route: String) =
         launchSingleTop = true
         restoreState = true
     }
+}
