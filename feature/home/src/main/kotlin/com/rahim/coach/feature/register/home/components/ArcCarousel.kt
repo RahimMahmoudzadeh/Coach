@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
@@ -72,7 +73,6 @@ fun InteractiveArcCarousel(
     primaryItems: List<String>,
     cardItems: (String) -> List<String>,
 ) {
-
     var primaryItem by remember { mutableStateOf(primaryItems.first()) }
     var secondaryItems by remember { mutableStateOf(cardItems(primaryItem)) }
 
@@ -193,7 +193,8 @@ fun InteractiveArcCarousel(
             pageSpacing = 10.dp,
             modifier = Modifier
                 .width(maxWidth)
-                .height(350.dp)
+                .fillMaxHeight()
+                .padding(top = 62.dp)
         ) { index ->
             val safeIndex = index.coerceAtMost(secondaryItems.size - 1)
             val pageOffset = (pagerState.currentPage - index) + pagerState.currentPageOffsetFraction

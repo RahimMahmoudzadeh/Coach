@@ -1,5 +1,6 @@
 package com.rahim.coach.feature.register.home
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -19,6 +20,9 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableDoubleStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -26,6 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
@@ -61,11 +66,13 @@ private fun HomeScreen() {
 
     val configuration = LocalConfiguration.current
     val size = LocalSize.current
+    val space = LocalSpacing.current
+    val density = LocalDensity.current
 
     val scrollState = rememberScrollState()
-    val screenWidth = configuration.screenWidthDp
-    val screenHeight = configuration.screenHeightDp
-    val ovalHeight = (max(screenHeight, screenWidth) * 0.52)
+    val screenWidth by remember(configuration) { mutableIntStateOf(configuration.screenWidthDp) }
+    val screenHeight by remember(configuration) { mutableIntStateOf(configuration.screenHeightDp) }
+    val ovalHeight by remember(configuration) { mutableDoubleStateOf((max(screenHeight, screenWidth) * 0.73)) }
 
     val primaryArcCarouselItems = remember {
         mutableStateOf(HomeConstants.primaryArcCarouselItemsSample)
@@ -85,7 +92,7 @@ private fun HomeScreen() {
                 .fillMaxWidth()
                 .height(ovalHeight.dp),
             backgroundColor = HomeConstants.HomeColors.CoachGreen,
-            x1 = 2f, y1 = 1.1f, x2 = 0f, y2 = 2f
+            ovalHeight = with(density) { (ovalHeight * 0.85f).dp.toPx() }
         ) {
 
             Column(
@@ -93,6 +100,18 @@ private fun HomeScreen() {
                     .align(Alignment.TopCenter),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+
+                Image(
+                    painter = painterResource(com.rahim.coach.library.designsystem.R.drawable.path1),
+                    contentDescription = "app icon",
+                    modifier = Modifier.size(83.dp)
+                )
+                Text(
+                    text = stringResource(com.rahim.coach.library.designsystem.R.string.your_smart_phone),
+                    color = Color.White,
+                    modifier = Modifier.padding(top = space.extraSmall)
+                )
+
                 Spacer(
                     modifier = Modifier
                         .height(size.extraExtraExtraExtraHuge)
