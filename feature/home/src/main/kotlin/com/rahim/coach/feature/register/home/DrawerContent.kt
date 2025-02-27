@@ -31,6 +31,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -126,9 +127,9 @@ fun DrawerContent(modifier: Modifier = Modifier) {
     val size = LocalSize.current
     val fontSize = LocalFontSize.current
 
-    val screenWidth by remember { mutableIntStateOf(configuration.screenWidthDp) }
-    val screenHeight by remember { mutableIntStateOf(configuration.screenHeightDp) }
-    val ovalHeight by remember { mutableDoubleStateOf((max(screenHeight, screenWidth) / 2.7)) }
+    val screenWidth by remember(configuration) { mutableIntStateOf(configuration.screenWidthDp) }
+    val screenHeight by remember(configuration) { mutableIntStateOf(configuration.screenHeightDp) }
+    val ovalHeight by remember(configuration) { mutableDoubleStateOf((max(screenHeight, screenWidth) * 0.25)) }
 
     Column(
         modifier = modifier
@@ -140,12 +141,10 @@ fun DrawerContent(modifier: Modifier = Modifier) {
                 .fillMaxWidth()
                 .height(ovalHeight.dp),
             backgroundColor = HomeConstants.HomeColors.CoachGreen,
-            x1 = 2f, y1 = 1.3f, x2 = 0f, y2 = 2f
         ) {
             Column(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .padding(top = space.extraExtraLarge),
+                    .fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Image(
