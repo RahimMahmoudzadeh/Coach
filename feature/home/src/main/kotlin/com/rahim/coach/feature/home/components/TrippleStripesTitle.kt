@@ -22,10 +22,12 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun StripedTitle(
+    modifier: Modifier = Modifier,
     text: String,
     color: Color = MaterialTheme.colorScheme.primary,
 ) {
     Row(
+        modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
