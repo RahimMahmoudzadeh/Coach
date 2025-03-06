@@ -1,4 +1,4 @@
-package com.rahim.coach.feature.register.home
+package com.rahim.coach.feature.home
 
 import android.annotation.SuppressLint
 import androidx.annotation.DrawableRes
@@ -29,23 +29,20 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.rahim.coach.feature.register.home.components.CustomOvalBottomShapeContainer
-import com.rahim.coach.feature.register.home.components.HomeConstants
+import com.rahim.coach.feature.home.components.CustomOvalBottomShapeContainer
+import com.rahim.coach.feature.home.components.HomeConstants
 import com.rahim.coach.library.designsystem.R
 import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
 import com.rahim.coach.library.designsystem.theme.CaribbeanGreen
 import com.rahim.coach.library.designsystem.theme.CoachTheme
-import timber.log.Timber
 import kotlin.math.max
 
 sealed interface DrawerItemType {
@@ -150,7 +147,7 @@ fun DrawerContent(modifier: Modifier = Modifier) {
                 Image(
                     painter = painterResource(R.drawable.path1),
                     contentDescription = "app icon",
-                    modifier = Modifier.size(83.dp)
+                    modifier = Modifier.size(83.dp).padding(top = space.extraExtraLarge)
                 )
                 Text(
                     text = stringResource(R.string.your_smart_phone),

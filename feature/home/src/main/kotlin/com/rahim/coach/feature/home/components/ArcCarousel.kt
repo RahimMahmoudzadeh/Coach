@@ -1,4 +1,4 @@
-package com.rahim.coach.feature.register.home.components
+package com.rahim.coach.feature.home.components
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.Animatable

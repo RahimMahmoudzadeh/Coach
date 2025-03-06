@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import com.rahim.coach.feature.register.home.homeScreen
+import com.rahim.coach.feature.home.homeScreen
 
 @Composable
 fun NavigationComponent(
