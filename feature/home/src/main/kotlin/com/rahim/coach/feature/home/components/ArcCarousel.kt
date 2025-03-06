@@ -60,6 +60,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.util.lerp
 import com.rahim.coach.feature.home.R
+import com.rahim.coach.library.designsystem.base.LocalFontSize
+import com.rahim.coach.library.designsystem.base.LocalSize
+import com.rahim.coach.library.designsystem.base.LocalSpacing
 import kotlinx.coroutines.launch
 import kotlin.math.abs
 import kotlin.math.absoluteValue
@@ -74,6 +77,10 @@ fun InteractiveArcCarousel(
     primaryItems: List<String>,
     cardItems: (String) -> List<String>,
 ) {
+
+    val size = LocalSize.current
+    val fontSize = LocalFontSize.current
+
     var primaryItem by remember { mutableStateOf(primaryItems.first()) }
     var secondaryItems by remember { mutableStateOf(cardItems(primaryItem)) }
 
@@ -92,9 +99,7 @@ fun InteractiveArcCarousel(
         contentAlignment = Alignment.Center,
         modifier = modifier
     ) {
-        val containerWidth = maxWidth
-        // Here we consider the arc to be drawn in a square area equal to containerWidth.
-        val arcSize = containerWidth
+        val arcSize = maxWidth
 
         Canvas(
             modifier = Modifier
@@ -108,7 +113,7 @@ fun InteractiveArcCarousel(
                     1f to Color.White.copy(alpha = 0f)
                 ),
                 center = center,
-                style = Stroke(width = 4.dp.toPx(), cap = StrokeCap.Round)
+                style = Stroke(width = size.default.toPx(), cap = StrokeCap.Round)
             )
 
             drawCircle(
@@ -153,7 +158,7 @@ fun InteractiveArcCarousel(
 
             Text(
                 primaryItems[index],
-                fontSize = 16.sp,
+                fontSize = fontSize.small,
                 color = Color.White,
                 modifier = Modifier
                     .offset(x.dp, y.dp)
@@ -246,6 +251,10 @@ fun CarouselCard(
     onAddClick: () -> Unit,
     onCardClick: () -> Unit,
 ) {
+    val size = LocalSize.current
+    val space = LocalSpacing.current
+    val fontSize = LocalFontSize.current
+
     Card(
         modifier = modifier
             .size(
@@ -253,7 +262,7 @@ fun CarouselCard(
                 height = 250.dp
             )
             .clickable { onCardClick() },
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(size.extraSmall),
         colors = CardDefaults.cardColors(
             containerColor = Color.White
         ),
@@ -265,30 +274,30 @@ fun CarouselCard(
                 painter = painterResource(R.drawable.food),
                 contentDescription = "Card Image",
                 modifier = Modifier
-                    .padding(2.dp)
-                    .clip(RoundedCornerShape(16.dp))
+                    .padding(space.default)
+                    .clip(RoundedCornerShape(size.extraSmall))
                     .fillMaxWidth()
                     .height(150.dp),
                 contentScale = ContentScale.Crop
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(size.extraSmall))
 
             // Text Section
             Column(
                 modifier = Modifier
-                    .padding(horizontal = 10.dp)
+                    .padding(horizontal = space.small)
                     .fillMaxWidth()
             ) {
                 Text(
                     text = title,
                     style = TextStyle(
                         fontWeight = FontWeight.Bold,
-                        fontSize = 12.sp,
+                        fontSize = fontSize.default,
                         color = MaterialTheme.colorScheme.onSecondary
                     )
                 )
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(size.default))
                 Text(
                     text = description,
                     style = TextStyle(
@@ -299,13 +308,13 @@ fun CarouselCard(
                 )
             }
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(size.extraExtraSmall))
 
             // Bottom Section
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 8.dp),
+                    .padding(horizontal = space.extraSmall),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
@@ -317,10 +326,10 @@ fun CarouselCard(
                         painter = painterResource(id = R.drawable.ic_clock),
                         contentDescription = "Duration Icon",
                         tint = Color.Gray,
-                        modifier = Modifier.size(18.dp)
+                        modifier = Modifier.size(size.small)
                     )
 
-                    Spacer(modifier = Modifier.width(4.dp))
+                    Spacer(modifier = Modifier.width(size.default))
 
                     Text(
                         text = duration,
@@ -335,12 +344,12 @@ fun CarouselCard(
                 // Add Button
                 Box(
                     modifier = Modifier
-                        .size(28.dp)
+                        .size(size.large)
                         .background(
                             color = Color(0xFFD0FCEA),
-                            shape = RoundedCornerShape(12.dp)
+                            shape = RoundedCornerShape(size.extraExtraSmall)
                         )
-                        .padding(2.dp)
+                        .padding(space.default)
                         .clickable { onAddClick() },
                     contentAlignment = Alignment.Center
                 ) {
@@ -348,12 +357,12 @@ fun CarouselCard(
                         painter = painterResource(id = R.drawable.round_add_24),
                         contentDescription = "Add Icon",
                         tint = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.size(16.dp)
+                        modifier = Modifier.size(size.extraSmall)
                     )
                 }
             }
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(size.extraExtraExtraSmall))
         }
     }
 }
