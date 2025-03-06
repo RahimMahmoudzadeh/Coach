@@ -5,7 +5,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 data class SizeDimensions(
-    val default: Dp = 12.dp,
+    val default: Dp = 4.dp,
+    val extraExtraExtraSmall: Dp = 8.dp,
+    val extraExtraSmall: Dp = 12.dp,
     val extraSmall: Dp = 16.dp,
     val small: Dp = 20.dp,
     val medium: Dp = 24.dp,

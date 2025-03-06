@@ -35,12 +35,10 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.rahim.coach.feature.home.R
 import com.rahim.coach.feature.home.DrawerLayout
-import com.rahim.coach.feature.home.components.HomeConstants
 import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
@@ -124,12 +122,12 @@ class MainActivity : ComponentActivity() {
                                             .size(size.extraExtraExtraLarge)
                                             .background(
                                                 color = Color.White,
-                                                shape = RoundedCornerShape(size.default)
+                                                shape = RoundedCornerShape(size.extraExtraSmall)
                                             )
                                             .border(
                                                 width = 1.dp,
                                                 color = MaterialTheme.colorScheme.onSecondaryContainer,
-                                                shape = RoundedCornerShape(size.default)
+                                                shape = RoundedCornerShape(size.extraExtraSmall)
                                             )
                                             .padding(space.extraSmall).clickable(onClick = {
                                                 coroutineScope.launch { drawerState.open() }
@@ -143,12 +141,12 @@ class MainActivity : ComponentActivity() {
                                             .size(size.extraExtraExtraLarge)
                                             .background(
                                                 color = Color.White,
-                                                shape = RoundedCornerShape(size.default)
+                                                shape = RoundedCornerShape(size.extraExtraSmall)
                                             )
                                             .border(
                                                 width = 1.dp,
                                                 color = MaterialTheme.colorScheme.onSecondaryContainer,
-                                                shape = RoundedCornerShape(size.default)
+                                                shape = RoundedCornerShape(size.extraExtraSmall)
                                             )
                                             .padding(space.extraSmall),
                                         imageVector = ImageVector.vectorResource(R.drawable.setting_2),

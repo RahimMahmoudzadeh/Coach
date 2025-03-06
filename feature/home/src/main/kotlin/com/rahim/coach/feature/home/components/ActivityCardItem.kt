@@ -30,6 +30,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.rahim.coach.library.designsystem.base.LocalFontSize
+import com.rahim.coach.library.designsystem.base.LocalSize
+import com.rahim.coach.library.designsystem.base.LocalSpacing
 
 data class HighlightItem(
     val icon: Int,
@@ -48,9 +51,14 @@ fun ActivityCard(
     buttonIcon: Painter,
     onButtonClick: () -> Unit = {},
 ) {
+
+    val size = LocalSize.current
+    val space = LocalSpacing.current
+    val fontSize = LocalFontSize.current
+
     Card(
         modifier = modifier,
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(size.extraSmall),
         // You can tweak elevation or card colors as needed
         elevation = CardDefaults.cardElevation(defaultElevation = HomeConstants.DEF_CARD_ELEVATION),
         colors = CardDefaults.cardColors(containerColor = Color.White)
@@ -62,7 +70,7 @@ fun ActivityCard(
             topRightContent?.let {
                 Row(
                     modifier = Modifier
-                        .padding(16.dp)
+                        .padding(space.medium)
                         .align(Alignment.TopEnd),
                     verticalAlignment = Alignment.CenterVertically,
                     content = it
@@ -72,7 +80,7 @@ fun ActivityCard(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(12.dp)
+                    .padding(space.small)
             ) {
                 // -- Top Row: leading icon, title, optional top-right content
                 Row(
@@ -82,16 +90,16 @@ fun ActivityCard(
                         painter = icon,
                         contentDescription = null,
                         tint = Color.Unspecified, // If your icon is colored already
-                        modifier = Modifier.size(40.dp)
+                        modifier = Modifier.size(size.extraExtraExtraLarge)
                     )
 
-                    Spacer(modifier = Modifier.width(8.dp))
+                    Spacer(modifier = Modifier.width(size.extraExtraExtraSmall))
 
                     Text(
                         text = title,
                         style = TextStyle(
                             fontWeight = FontWeight.SemiBold,
-                            fontSize = 16.sp,
+                            fontSize = fontSize.small,
                             color = Color(0xFF333333)
                         )
                     )
@@ -102,7 +110,7 @@ fun ActivityCard(
                 }
 
                 // -- Divider (thin gray line)
-                Spacer(Modifier.height(8.dp))
+                Spacer(Modifier.height(size.extraExtraExtraSmall))
 
                 middleContent?.let {
                     Row(
@@ -111,9 +119,9 @@ fun ActivityCard(
                     )
                 }
 
-                Spacer(Modifier.height(8.dp))
+                Spacer(Modifier.height(size.extraExtraExtraSmall))
                 HorizontalDivider(thickness = 1.dp, color = Color.LightGray.copy(alpha = 0.7f))
-                Spacer(Modifier.height(8.dp))
+                Spacer(Modifier.height(size.extraExtraExtraSmall))
 
                 // -- Bottom Row: subtitle on left, round button on right
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -121,7 +129,7 @@ fun ActivityCard(
                         text = subtitle,
                         style = TextStyle(
                             fontWeight = FontWeight.Normal,
-                            fontSize = 14.sp,
+                            fontSize = fontSize.small,
                             color = Color.Gray
                         )
                     )
@@ -130,7 +138,7 @@ fun ActivityCard(
 
                     Box(
                         modifier = Modifier
-                            .size(20.dp)
+                            .size(size.small)
                             .clip(CircleShape)
                             .background(Color(0xFF00C853)) // bright green
                             .clickable { onButtonClick() },
@@ -140,7 +148,7 @@ fun ActivityCard(
                             painter = buttonIcon,
                             contentDescription = null,
                             tint = Color.White,
-                            modifier = Modifier.size(20.dp)
+                            modifier = Modifier.size(size.small)
                         )
                     }
                 }
