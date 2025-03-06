@@ -41,6 +41,7 @@ import androidx.navigation.compose.rememberNavController
 import com.rahim.coach.feature.home.R
 import com.rahim.coach.feature.home.DrawerLayout
 import com.rahim.coach.feature.home.components.HomeConstants
+import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
 import com.rahim.coach.library.designsystem.theme.CoachTheme
@@ -61,6 +62,7 @@ class MainActivity : ComponentActivity() {
 
             val size = LocalSize.current
             val space = LocalSpacing.current
+            val fontSize = LocalFontSize.current
 
             CoachTheme {
                 Surface(
@@ -84,7 +86,7 @@ class MainActivity : ComponentActivity() {
                                 ) {
                                     Icon(
                                         modifier = Modifier
-                                            .padding(top = 20.dp)
+                                            .padding(top = space.large)
                                             .size(width = 72.dp, height = 87.dp),
                                         imageVector = ImageVector.vectorResource(com.rahim.coach.library.designsystem.R.drawable.ic_app_icon),
                                         contentDescription = "app logo",
@@ -93,21 +95,21 @@ class MainActivity : ComponentActivity() {
 
                                     Spacer(
                                         modifier = Modifier
-                                            .height(8.dp)
+                                            .height(space.extraSmall)
                                     )
 
                                     Text(
                                         text = "Your smart companion",
                                         style = TextStyle(
                                             fontWeight = FontWeight.SemiBold,
-                                            fontSize = 16.sp
+                                            fontSize = fontSize.small
                                         ),
                                         color = Color.White
                                     )
 
                                     Spacer(
                                         modifier = Modifier
-                                            .height(8.dp)
+                                            .height(space.extraSmall)
                                     )
                                 }
 
