@@ -20,13 +20,21 @@ import com.rahim.coach.library.designsystem.base.SpaceDimensions
 private val DarkColorScheme = darkColorScheme(
     primary = CaribbeanGreen,
     onPrimary = MediumAquamarine,
-    secondary = DarkSilver
+    secondary = DarkSilver,
+    onSecondary = OuterSpace,
+    onSecondaryContainer = SilverChalice,
+    primaryContainer = BodyColor,
+    onPrimaryContainer = CharlestonGreen
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = CaribbeanGreen,
     onPrimary = MediumAquamarine,
-    secondary = DarkSilver
+    secondary = DarkSilver,
+    onSecondary = OuterSpace,
+    primaryContainer = BodyColor,
+    onSecondaryContainer = SilverChalice,
+    onPrimaryContainer = CharlestonGreen
 )
 
 @Composable
@@ -37,10 +45,10 @@ fun CoachTheme(
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
+//        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+//            val context = LocalContext.current
+//            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+//        }
 
         darkTheme -> DarkColorScheme
         else -> LightColorScheme

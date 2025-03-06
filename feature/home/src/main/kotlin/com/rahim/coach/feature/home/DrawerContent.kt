@@ -137,7 +137,7 @@ fun DrawerContent(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(ovalHeight.dp),
-            backgroundColor = HomeConstants.HomeColors.CoachGreen,
+            backgroundColor = MaterialTheme.colorScheme.primary,
         ) {
             Column(
                 modifier = Modifier

@@ -20,7 +20,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.getValue
@@ -37,8 +39,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.rahim.coach.feature.home.R
-import com.rahim.coach.feature.register.home.DrawerLayout
-import com.rahim.coach.feature.register.home.components.HomeConstants
+import com.rahim.coach.feature.home.DrawerLayout
+import com.rahim.coach.feature.home.components.HomeConstants
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
 import com.rahim.coach.library.designsystem.theme.CoachTheme
@@ -61,105 +63,110 @@ class MainActivity : ComponentActivity() {
             val space = LocalSpacing.current
 
             CoachTheme {
-                DrawerLayout(drawerState = drawerState) {
-                    Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .background(color = HomeConstants.HomeColors.CoachGreen)
-                                .padding(top = space.extraExtraExtraLarge)
-                        ) {
-                            // App Icon - Middle Icon
-                            Column(
-                                modifier = Modifier
-                                    .align(Alignment.TopCenter),
-                                horizontalAlignment = Alignment.CenterHorizontally
-                            ) {
-                                Icon(
-                                    modifier = Modifier
-                                        .padding(top = 20.dp)
-                                        .size(width = 72.dp, height = 87.dp),
-                                    imageVector = ImageVector.vectorResource(com.rahim.coach.library.designsystem.R.drawable.ic_app_icon),
-                                    contentDescription = "app logo",
-                                    tint = Color.White
-                                )
-
-                                Spacer(
-                                    modifier = Modifier
-                                        .height(8.dp)
-                                )
-
-                                Text(
-                                    text = "Your smart companion",
-                                    style = TextStyle(
-                                        fontFamily = HomeConstants.HomeFont.inter,
-                                        fontWeight = FontWeight.SemiBold,
-                                        fontSize = 16.sp
-                                    ),
-                                    color = Color.White
-                                )
-
-                                Spacer(
-                                    modifier = Modifier
-                                        .height(8.dp)
-                                )
-                            }
-
-                            Row(
+                Surface(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(MaterialTheme.colorScheme.background),
+                ) {
+                    DrawerLayout(drawerState = drawerState) {
+                        Scaffold(modifier = Modifier.fillMaxSize(), topBar = {
+                            Box(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(size.medium),
-                                horizontalArrangement = Arrangement.SpaceBetween
+                                    .background(color = MaterialTheme.colorScheme.primary)
+                                    .padding(top = space.extraExtraExtraLarge)
                             ) {
-                                Icon(
+                                // App Icon - Middle Icon
+                                Column(
                                     modifier = Modifier
-                                        .size(size.extraExtraExtraLarge)
-                                        .background(
-                                            color = Color.White,
-                                            shape = RoundedCornerShape(size.default)
-                                        )
-                                        .border(
-                                            width = 1.dp,
-                                            color = HomeConstants.HomeColors.BorderColor,
-                                            shape = RoundedCornerShape(size.default)
-                                        )
-                                        .padding(space.extraSmall).clickable(onClick = {
-                                            coroutineScope.launch { drawerState.open() }
-                                        }),
-                                    imageVector = ImageVector.vectorResource(R.drawable.menu),
-                                    contentDescription = "app logo",
-                                    tint = HomeConstants.HomeColors.IconColor
-                                )
-                                Icon(
+                                        .align(Alignment.TopCenter),
+                                    horizontalAlignment = Alignment.CenterHorizontally
+                                ) {
+                                    Icon(
+                                        modifier = Modifier
+                                            .padding(top = 20.dp)
+                                            .size(width = 72.dp, height = 87.dp),
+                                        imageVector = ImageVector.vectorResource(com.rahim.coach.library.designsystem.R.drawable.ic_app_icon),
+                                        contentDescription = "app logo",
+                                        tint = Color.White
+                                    )
+
+                                    Spacer(
+                                        modifier = Modifier
+                                            .height(8.dp)
+                                    )
+
+                                    Text(
+                                        text = "Your smart companion",
+                                        style = TextStyle(
+                                            fontWeight = FontWeight.SemiBold,
+                                            fontSize = 16.sp
+                                        ),
+                                        color = Color.White
+                                    )
+
+                                    Spacer(
+                                        modifier = Modifier
+                                            .height(8.dp)
+                                    )
+                                }
+
+                                Row(
                                     modifier = Modifier
-                                        .size(size.extraExtraExtraLarge)
-                                        .background(
-                                            color = Color.White,
-                                            shape = RoundedCornerShape(size.default)
-                                        )
-                                        .border(
-                                            width = 1.dp,
-                                            color = HomeConstants.HomeColors.BorderColor,
-                                            shape = RoundedCornerShape(size.default)
-                                        )
-                                        .padding(space.extraSmall),
-                                    imageVector = ImageVector.vectorResource(R.drawable.setting_2),
-                                    contentDescription = "app logo",
-                                    tint = HomeConstants.HomeColors.IconColor
-                                )
+                                        .fillMaxWidth()
+                                        .padding(size.medium),
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    Icon(
+                                        modifier = Modifier
+                                            .size(size.extraExtraExtraLarge)
+                                            .background(
+                                                color = Color.White,
+                                                shape = RoundedCornerShape(size.default)
+                                            )
+                                            .border(
+                                                width = 1.dp,
+                                                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                                                shape = RoundedCornerShape(size.default)
+                                            )
+                                            .padding(space.extraSmall).clickable(onClick = {
+                                                coroutineScope.launch { drawerState.open() }
+                                            }),
+                                        imageVector = ImageVector.vectorResource(R.drawable.menu),
+                                        contentDescription = "app logo",
+                                        tint = MaterialTheme.colorScheme.onPrimaryContainer
+                                    )
+                                    Icon(
+                                        modifier = Modifier
+                                            .size(size.extraExtraExtraLarge)
+                                            .background(
+                                                color = Color.White,
+                                                shape = RoundedCornerShape(size.default)
+                                            )
+                                            .border(
+                                                width = 1.dp,
+                                                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                                                shape = RoundedCornerShape(size.default)
+                                            )
+                                            .padding(space.extraSmall),
+                                        imageVector = ImageVector.vectorResource(R.drawable.setting_2),
+                                        contentDescription = "app logo",
+                                        tint = MaterialTheme.colorScheme.onPrimaryContainer
+                                    )
+                                }
                             }
+                        }, bottomBar = {
+                            BottomNavigationBar(
+                                navController = navController,
+                                navBackStackEntry = navBackStackEntry
+                            )
+                        }) { innerPadding ->
+                            NavigationComponent(
+                                innerPadding = innerPadding,
+                                navController = navController,
+                                startDestination = Destinations.Home
+                            )
                         }
-                    }, bottomBar = {
-                        BottomNavigationBar(
-                            navController = navController,
-                            navBackStackEntry = navBackStackEntry
-                        )
-                    }) { innerPadding ->
-                        NavigationComponent(
-                            innerPadding = innerPadding,
-                            navController = navController,
-                            startDestination = Destinations.Home
-                        )
                     }
                 }
             }

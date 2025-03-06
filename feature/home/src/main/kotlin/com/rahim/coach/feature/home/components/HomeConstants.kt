@@ -1,4 +1,4 @@
-package com.rahim.coach.feature.register.home.components
+package com.rahim.coach.feature.home.components
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
@@ -82,25 +82,4 @@ object HomeConstants {
             isFavorite = true
         ),
     )
-
-    object HomeColors {
-        val CoachGreen = Color(0xFF00D27D)
-        val IconColor = Color(0xFF292D32)
-        val BorderColor = Color(0xFFACACAC)
-        val TitleColor = Color(0xFF484848)
-        val BodyColor = Color(0xFFC4C4C4)
-    }
-    object HomeFont {
-        val inter = FontFamily(
-            Font(R.font.inter_regular, FontWeight.Normal),
-            Font(R.font.inter_semi_bold, FontWeight.SemiBold),
-            Font(R.font.inter_bold, FontWeight.Bold),
-        )
-
-        val homeSemiBold = TextStyle(
-            fontFamily = HomeFont.inter,
-            fontWeight = FontWeight.SemiBold,
-            fontSize = 16.sp
-        )
-    }
 }

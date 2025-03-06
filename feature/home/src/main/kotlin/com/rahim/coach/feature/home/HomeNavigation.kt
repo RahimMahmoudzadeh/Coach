@@ -1,4 +1,4 @@
-package com.rahim.coach.feature.register.home
+package com.rahim.coach.feature.home
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder

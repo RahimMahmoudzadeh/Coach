@@ -32,6 +32,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -282,20 +283,18 @@ fun CarouselCard(
                 Text(
                     text = title,
                     style = TextStyle(
-                        fontFamily = HomeConstants.HomeFont.inter,
                         fontWeight = FontWeight.Bold,
                         fontSize = 12.sp,
-                        color = HomeConstants.HomeColors.TitleColor
+                        color = MaterialTheme.colorScheme.onSecondary
                     )
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
                     text = description,
                     style = TextStyle(
-                        fontFamily = HomeConstants.HomeFont.inter,
                         fontWeight = FontWeight.Normal,
                         fontSize = 8.sp,
-                        color = HomeConstants.HomeColors.BodyColor
+                            color = MaterialTheme.colorScheme.primaryContainer
                     )
                 )
             }
@@ -326,7 +325,6 @@ fun CarouselCard(
                     Text(
                         text = duration,
                         style = TextStyle(
-                            fontFamily = HomeConstants.HomeFont.inter,
                             fontWeight = FontWeight.Normal,
                             fontSize = 8.sp,
                             color = Color.Gray
@@ -349,7 +347,7 @@ fun CarouselCard(
                     Icon(
                         painter = painterResource(id = R.drawable.round_add_24),
                         contentDescription = "Add Icon",
-                        tint = HomeConstants.HomeColors.CoachGreen,
+                        tint = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.size(16.dp)
                     )
                 }

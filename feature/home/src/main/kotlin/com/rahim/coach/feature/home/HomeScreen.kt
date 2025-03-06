@@ -1,13 +1,11 @@
-package com.rahim.coach.feature.register.home
+package com.rahim.coach.feature.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -15,41 +13,41 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableDoubleStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.rahim.coach.feature.home.R
-import com.rahim.coach.feature.register.home.components.ActivityCard
-import com.rahim.coach.feature.register.home.components.CustomOvalBottomShapeContainer
-import com.rahim.coach.feature.register.home.components.FoodCardList
-import com.rahim.coach.feature.register.home.components.HighlightItem
-import com.rahim.coach.feature.register.home.components.HighlightsSection
-import com.rahim.coach.feature.register.home.components.HomeConstants
-import com.rahim.coach.feature.register.home.components.InteractiveArcCarousel
-import com.rahim.coach.feature.register.home.components.PromoPager
-import com.rahim.coach.feature.register.home.components.StripedTitle
+import com.rahim.coach.feature.home.components.ActivityCard
+import com.rahim.coach.feature.home.components.CustomOvalBottomShapeContainer
+import com.rahim.coach.feature.home.components.FoodCardList
+import com.rahim.coach.feature.home.components.HighlightItem
+import com.rahim.coach.feature.home.components.HighlightsSection
+import com.rahim.coach.feature.home.components.HomeConstants
+import com.rahim.coach.feature.home.components.InteractiveArcCarousel
+import com.rahim.coach.feature.home.components.PromoPager
+import com.rahim.coach.feature.home.components.StripedTitle
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
 import com.rahim.coach.library.designsystem.theme.CoachTheme
@@ -65,14 +63,12 @@ internal fun HomeRoute() {
 private fun HomeScreen() {
 
     val configuration = LocalConfiguration.current
-    val size = LocalSize.current
-    val space = LocalSpacing.current
     val density = LocalDensity.current
 
     val scrollState = rememberScrollState()
     val screenWidth by remember(configuration) { mutableIntStateOf(configuration.screenWidthDp) }
     val screenHeight by remember(configuration) { mutableIntStateOf(configuration.screenHeightDp) }
-    val ovalHeight by remember(configuration) { mutableDoubleStateOf((max(screenHeight, screenWidth) * 0.73)) }
+    val ovalHeight by remember(configuration) { mutableDoubleStateOf((max(screenHeight, screenWidth) * 0.55)) }
 
     val primaryArcCarouselItems = remember {
         mutableStateOf(HomeConstants.primaryArcCarouselItemsSample)
@@ -91,8 +87,8 @@ private fun HomeScreen() {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(ovalHeight.dp),
-            backgroundColor = HomeConstants.HomeColors.CoachGreen,
-            ovalHeight = with(density) { (ovalHeight * 0.85f).dp.toPx() }
+            backgroundColor = MaterialTheme.colorScheme.primary,
+            ovalHeight = with(density) { (ovalHeight * 0.70f).dp.toPx() }
         ) {
 
             Column(
@@ -100,22 +96,6 @@ private fun HomeScreen() {
                     .align(Alignment.TopCenter),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-
-                Image(
-                    painter = painterResource(com.rahim.coach.library.designsystem.R.drawable.path1),
-                    contentDescription = "app icon",
-                    modifier = Modifier.size(83.dp)
-                )
-                Text(
-                    text = stringResource(com.rahim.coach.library.designsystem.R.string.your_smart_phone),
-                    color = Color.White,
-                    modifier = Modifier.padding(top = space.extraSmall)
-                )
-
-                Spacer(
-                    modifier = Modifier
-                        .height(size.extraExtraExtraExtraHuge)
-                )
                 InteractiveArcCarousel(
                     modifier = Modifier,
                     primaryItems = primaryArcCarouselItems.value,
@@ -128,7 +108,6 @@ private fun HomeScreen() {
                     }
                 )
             }
-
         }
 
         StripedTitle(
@@ -185,7 +164,6 @@ private fun HomeScreen() {
                 Text(
                     text = "Calories 0",
                     style = TextStyle(
-                        fontFamily = HomeConstants.HomeFont.inter,
                         fontWeight = FontWeight.Normal,
                         fontSize = 12.sp,
                         color = Color.Gray
@@ -213,7 +191,6 @@ private fun HomeScreen() {
                     Text(
                         text = "💎 +20",
                         style = TextStyle(
-                            fontFamily = HomeConstants.HomeFont.inter,
                             fontWeight = FontWeight.Normal,
                             fontSize = 12.sp,
                             color = Color.Gray
@@ -238,7 +215,7 @@ private fun HomeScreen() {
         Text(
             modifier = Modifier
                 .padding(horizontal = 24.dp),
-            text = stringResource(R.string.coach_about),
+            text = stringResource(com.rahim.coach.library.designsystem.R.string.coach_about),
             style = TextStyle(
                 fontWeight = FontWeight.Normal,
                 fontSize = 14.sp,

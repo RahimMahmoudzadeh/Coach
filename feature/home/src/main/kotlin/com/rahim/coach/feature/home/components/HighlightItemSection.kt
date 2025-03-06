@@ -15,6 +15,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -74,7 +75,7 @@ fun HighlightsSection(items: List<HighlightItem>, modifier: Modifier = Modifier)
                     Icon(
                         painter = painterResource(id = item.icon),
                         contentDescription = item.label,
-                        tint = if (item.isSelected) HomeConstants.HomeColors.CoachGreen else Color.Gray,
+                        tint = if (item.isSelected) MaterialTheme.colorScheme.primary else Color.Gray,
                         modifier = Modifier.size(30.dp)
                     )
                     Spacer(modifier = Modifier.height(4.dp))
@@ -82,7 +83,6 @@ fun HighlightsSection(items: List<HighlightItem>, modifier: Modifier = Modifier)
                     Text(
                         text = item.label,
                         style = TextStyle(
-                            fontFamily = HomeConstants.HomeFont.inter,
                             fontWeight = FontWeight.Normal,
                             fontSize = 12.sp,
                             color = if (item.isSelected) Color.Black else Color.Gray

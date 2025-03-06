@@ -108,7 +108,6 @@ fun FoodCard(
                     Text(
                         text = item.title,
                         style = TextStyle(
-                            fontFamily = HomeConstants.HomeFont.inter,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 12.sp,
                             color = Color(0xFF333333)
@@ -118,7 +117,6 @@ fun FoodCard(
                     Text(
                         text = item.subtitle,
                         style = TextStyle(
-                            fontFamily = HomeConstants.HomeFont.inter,
                             fontWeight = FontWeight.Normal,
                             fontSize = 8.sp,
                             color = Color.LightGray
@@ -132,7 +130,6 @@ fun FoodCard(
                         Text(
                             text = item.time,
                             style = TextStyle(
-                                fontFamily = HomeConstants.HomeFont.inter,
                                 fontWeight = FontWeight.Normal,
                                 fontSize = 10.sp,
                                 color = Color.Gray
@@ -142,7 +139,6 @@ fun FoodCard(
                         Text(
                             text = item.calories,
                             style = TextStyle(
-                                fontFamily = HomeConstants.HomeFont.inter,
                                 fontWeight = FontWeight.Normal,
                                 fontSize = 10.sp,
                                 color = Color.Gray

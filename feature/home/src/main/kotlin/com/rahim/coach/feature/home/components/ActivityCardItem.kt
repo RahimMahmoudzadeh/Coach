@@ -90,7 +90,6 @@ fun ActivityCard(
                     Text(
                         text = title,
                         style = TextStyle(
-                            fontFamily = HomeConstants.HomeFont.inter,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 16.sp,
                             color = Color(0xFF333333)
@@ -121,7 +120,6 @@ fun ActivityCard(
                     Text(
                         text = subtitle,
                         style = TextStyle(
-                            fontFamily = HomeConstants.HomeFont.inter,
                             fontWeight = FontWeight.Normal,
                             fontSize = 14.sp,
                             color = Color.Gray

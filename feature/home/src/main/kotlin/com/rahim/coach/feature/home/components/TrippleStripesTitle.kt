@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,7 +23,7 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun StripedTitle(
     text: String,
-    color: Color = HomeConstants.HomeColors.CoachGreen,
+    color: Color = MaterialTheme.colorScheme.primary,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -37,10 +38,9 @@ fun StripedTitle(
         Text(
             text = text,
             style = TextStyle(
-                fontFamily = HomeConstants.HomeFont.inter,
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp,
-                color = HomeConstants.HomeColors.TitleColor
+                color = MaterialTheme.colorScheme.onSecondary
             )
         )
 
