@@ -38,6 +38,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rahim.coach.feature.home.R
+import com.rahim.coach.library.designsystem.base.LocalFontSize
+import com.rahim.coach.library.designsystem.base.LocalSize
+import com.rahim.coach.library.designsystem.base.LocalSpacing
 
 data class FoodCardItem(
     val imageRes: Int,
@@ -55,11 +58,16 @@ fun FoodCard(
     onAddClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+
+    val size = LocalSize.current
+    val space = LocalSpacing.current
+    val fontSize = LocalFontSize.current
+
     Card(
         modifier = modifier
             .fillMaxWidth()
             .height(120.dp),
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(size.extraSmall),
         elevation = CardDefaults.cardElevation(defaultElevation = HomeConstants.DEF_CARD_ELEVATION),
         colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
@@ -73,7 +81,7 @@ fun FoodCard(
             CornerAccent(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(14.dp),
+                    .padding(space.small),
                 cornerColor = Color(0xFF00C853), // bright green
                 cornerStrokeWidth = 2.dp
             )
@@ -89,31 +97,31 @@ fun FoodCard(
                     painter = painterResource(id = item.imageRes),
                     contentDescription = "Food image",
                     modifier = Modifier
-                        .padding(4.dp)
+                        .padding(space.default)
                         .fillMaxHeight()
                         .aspectRatio(1f)
-                        .clip(RoundedCornerShape(12.dp)),
+                        .clip(RoundedCornerShape(size.extraExtraSmall)),
                     contentScale = ContentScale.Crop
                 )
 
-                Spacer(modifier = Modifier.width(12.dp))
+                Spacer(modifier = Modifier.width(size.extraExtraSmall))
 
                 // Text content (title, subtitle, time/calories row)
                 Column(
                     modifier = Modifier
                         .weight(1f)
-                        .padding(vertical = 12.dp), // So the text columns fill the remaining space
+                        .padding(vertical = space.small), // So the text columns fill the remaining space
                     verticalArrangement = Arrangement.Top
                 ) {
                     Text(
                         text = item.title,
                         style = TextStyle(
                             fontWeight = FontWeight.SemiBold,
-                            fontSize = 12.sp,
+                            fontSize = fontSize.default,
                             color = Color(0xFF333333)
                         )
                     )
-                    Spacer(modifier = Modifier.height(4.dp))
+                    Spacer(modifier = Modifier.height(size.default))
                     Text(
                         text = item.subtitle,
                         style = TextStyle(
@@ -123,7 +131,7 @@ fun FoodCard(
                         )
                     )
 
-                    Spacer(modifier = Modifier.height(30.dp))
+                    Spacer(modifier = Modifier.height(size.extraLarge))
 
                     // Time + Calories in a row
                     Row {
@@ -135,7 +143,7 @@ fun FoodCard(
                                 color = Color.Gray
                             )
                         )
-                        Spacer(modifier = Modifier.width(16.dp))
+                        Spacer(modifier = Modifier.width(size.extraSmall))
                         Text(
                             text = item.calories,
                             style = TextStyle(
@@ -147,7 +155,7 @@ fun FoodCard(
                     }
                 }
 
-                Spacer(modifier = Modifier.width(8.dp))
+                Spacer(modifier = Modifier.width(size.extraExtraExtraSmall))
 
 
             }
@@ -161,8 +169,8 @@ fun FoodCard(
                 tint = if (item.isFavorite) Color.Red else Color.Gray,
                 modifier = Modifier
                     .align(Alignment.TopEnd)
-                    .padding(10.dp)
-                    .size(24.dp)
+                    .padding(space.small)
+                    .size(size.medium)
                     .clickable {
                         onFavoriteClick(!item.isFavorite)
                     }
@@ -171,9 +179,9 @@ fun FoodCard(
             // The round "plus" button
             Box(
                 modifier = Modifier
-                    .padding(10.dp)
-                    .size(36.dp)
-                    .clip(RoundedCornerShape(12.dp))
+                    .padding(space.small)
+                    .size(size.extraExtraLarge)
+                    .clip(RoundedCornerShape(size.extraExtraSmall))
                     .background(Color(0xFFE0FFE9)) // pale green
                     .clickable { onAddClick() }
                     .align(Alignment.BottomEnd),
@@ -183,7 +191,7 @@ fun FoodCard(
                     painter = painterResource(id = R.drawable.round_add_24),
                     contentDescription = "Add to plan",
                     tint = Color(0xFF00C853),
-                    modifier = Modifier.size(20.dp)
+                    modifier = Modifier.size(size.small)
                 )
             }
         }
@@ -196,13 +204,14 @@ fun CornerAccent(
     cornerStrokeWidth: Dp,
     modifier: Modifier = Modifier,
 ) {
+    val localSize = LocalSize.current
     Canvas(
         modifier
             .fillMaxWidth()
             .fillMaxHeight()
     ) {
         val strokePx = cornerStrokeWidth.toPx()
-        val cornerRadius = 24.dp.toPx()  // how "curved" each corner arc is
+        val cornerRadius = localSize.medium.toPx()  // how "curved" each corner arc is
 
         // Top-left arc
         drawArc(
@@ -232,15 +241,17 @@ fun CornerAccent(
 fun FoodCardList(
     items: List<FoodCardItem>,
 ) {
+    val size = LocalSize.current
+    val space = LocalSpacing.current
 
     Column(
         modifier = Modifier
-            .padding(horizontal = 24.dp)
+            .padding(horizontal = space.extraLarge)
             .fillMaxSize()
             .background(Color.LightGray.copy(alpha = 0.1f)), // optional
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Spacer(Modifier.height(16.dp))
+        Spacer(Modifier.height(size.extraSmall))
         items.forEach { item ->
             FoodCard(
                 item = item,
@@ -251,7 +262,7 @@ fun FoodCardList(
                     // handle add
                 }
             )
-            Spacer(Modifier.height(16.dp))
+            Spacer(Modifier.height(size.extraSmall))
         }
 
     }
