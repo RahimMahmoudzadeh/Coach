@@ -30,14 +30,18 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.rahim.coach.library.designsystem.base.LocalFontSize
+import com.rahim.coach.library.designsystem.base.LocalSize
+import com.rahim.coach.library.designsystem.base.LocalSpacing
 
 @Composable
 fun HighlightsSection(items: List<HighlightItem>, modifier: Modifier = Modifier) {
-
+    val size = LocalSize.current
+    val space = LocalSpacing.current
+    val fontSize = LocalFontSize.current
     Box(
         modifier = modifier
-            .padding(horizontal = 40.dp)
+            .padding(horizontal = space.gigantic)
             // Force the box to be tall enough to show 2 rows
             // while staying symmetrical; for example a square or 3:2 ratio:
             .aspectRatio(3f / 2f),
@@ -70,21 +74,21 @@ fun HighlightsSection(items: List<HighlightItem>, modifier: Modifier = Modifier)
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center,
-                    modifier = Modifier.padding(8.dp)
+                    modifier = Modifier.padding(space.extraSmall)
                 ) {
                     Icon(
                         painter = painterResource(id = item.icon),
                         contentDescription = item.label,
                         tint = if (item.isSelected) MaterialTheme.colorScheme.primary else Color.Gray,
-                        modifier = Modifier.size(30.dp)
+                        modifier = Modifier.size(size.extraLarge)
                     )
-                    Spacer(modifier = Modifier.height(4.dp))
+                    Spacer(modifier = Modifier.height(size.default))
 
                     Text(
                         text = item.label,
                         style = TextStyle(
                             fontWeight = FontWeight.Normal,
-                            fontSize = 12.sp,
+                            fontSize = fontSize.default,
                             color = if (item.isSelected) Color.Black else Color.Gray
                         ),
                     )
