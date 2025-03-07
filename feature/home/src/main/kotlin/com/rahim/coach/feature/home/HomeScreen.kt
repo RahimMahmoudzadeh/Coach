@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -32,7 +31,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.rahim.coach.feature.home.components.ActivityCard
 import com.rahim.coach.feature.home.components.FoodCardList
 import com.rahim.coach.feature.home.components.HighlightItem
@@ -40,7 +38,7 @@ import com.rahim.coach.feature.home.components.HighlightsSection
 import com.rahim.coach.feature.home.components.HomeConstants
 import com.rahim.coach.feature.home.components.InteractiveArcCarousel
 import com.rahim.coach.feature.home.components.PromoPager
-import com.rahim.coach.feature.home.components.StripedTitle
+import com.rahim.coach.library.designsystem.base.StripedTitle
 import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing

@@ -11,7 +11,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import com.rahim.coach.library.designsystem.theme.CaribbeanGreen
-import com.rahim.coach.library.designsystem.theme.ThemeConstants
 
 @Composable
 fun CoachButton(
@@ -26,7 +25,7 @@ fun CoachButton(
 
     Button(
         onClick = onClick,
-        shape = RoundedCornerShape(ThemeConstants.Dimensions.defaultCornerRadius),
+        shape = RoundedCornerShape(size.extraExtraSmall),
         colors = ButtonDefaults.buttonColors
             (
             containerColor = CaribbeanGreen

@@ -1,5 +1,6 @@
 package com.rahim.coach.feature.food.food_details
 
+import CustomOvalBottomShapeContainer
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.EaseInOutExpo
 import androidx.compose.animation.core.animateFloatAsState
@@ -54,12 +55,22 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.rahim.coach.library.designsystem.R
 import com.rahim.coach.library.designsystem.base.CarouselCard
 import com.rahim.coach.library.designsystem.base.CoachButton
+import com.rahim.coach.library.designsystem.base.LocalFontSize
+import com.rahim.coach.library.designsystem.base.LocalSize
+import com.rahim.coach.library.designsystem.base.LocalSpacing
+import com.rahim.coach.library.designsystem.base.StripedTitle
+import com.rahim.coach.library.designsystem.theme.CaribbeanGreen
+import com.rahim.coach.library.designsystem.theme.CharlestonGreen
 import com.rahim.coach.library.designsystem.theme.CoachTheme
-import com.rahim.coach.library.designsystem.theme.ThemeConstants
+import com.rahim.coach.library.designsystem.theme.DarkSilver
+import com.rahim.coach.library.designsystem.theme.OuterSpace
+import com.rahim.coach.library.designsystem.theme.Quartz
+import com.rahim.coach.library.designsystem.theme.SilverChalice
+import com.rahim.coach.library.designsystem.theme.font_bold
+import com.rahim.coach.library.designsystem.theme.font_medium
 import kotlinx.coroutines.delay
 import kotlin.math.max
 
@@ -72,6 +83,11 @@ internal fun FoodDetailRoute() {
 private fun FoodDetailScreen(
     modifier: Modifier = Modifier,
 ) {
+
+    val size = LocalSize.current
+    val space = LocalSpacing.current
+    val fontSize = LocalFontSize.current
+
     val configuration = LocalConfiguration.current
     val screenWidth = configuration.screenWidthDp
     val screenHeight = configuration.screenHeightDp
@@ -108,7 +124,7 @@ private fun FoodDetailScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(ovalHeight.dp),
-            backgroundColor = ThemeConstants.Colors.CoachGreen
+            backgroundColor = CaribbeanGreen
         ) {
 
             Column(
@@ -128,7 +144,7 @@ private fun FoodDetailScreen(
                     ) {
                         Icon(
                             modifier = Modifier
-                                .padding(top = 20.dp)
+                                .padding(top = space.large)
                                 .size(width = 72.dp, height = 87.dp),
                             imageVector = ImageVector.vectorResource(R.drawable.ic_app_icon),
                             contentDescription = "app logo",
@@ -137,22 +153,22 @@ private fun FoodDetailScreen(
 
                         Spacer(
                             modifier = Modifier
-                                .height(8.dp)
+                                .height(space.extraSmall)
                         )
 
                         Text(
                             text = "Your smart companion",
                             style = TextStyle(
-                                fontFamily = ThemeConstants.CoachFont.inter,
+                                fontFamily = font_bold,
                                 fontWeight = FontWeight.SemiBold,
-                                fontSize = 16.sp
+                                fontSize = fontSize.small
                             ),
                             color = Color.White
                         )
 
                         Spacer(
                             modifier = Modifier
-                                .height(8.dp)
+                                .height(space.extraSmall)
                         )
 
 
@@ -163,27 +179,27 @@ private fun FoodDetailScreen(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(24.dp),
+                            .padding(space.extraLarge),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
 
                         Box(
                             modifier = Modifier
-                                .size(40.dp)
+                                .size(size.extraExtraExtraLarge)
                                 .background(
                                     color = Color.Transparent,
-                                    shape = RoundedCornerShape(ThemeConstants.Dimensions.defaultCornerRadius)
+                                    shape = RoundedCornerShape(size.extraExtraSmall)
                                 )
                                 .border(
                                     width = 1.dp,
                                     color = Color.White,
-                                    shape = RoundedCornerShape(ThemeConstants.Dimensions.defaultCornerRadius)
+                                    shape = RoundedCornerShape(size.extraExtraSmall)
                                 ),
                             contentAlignment = Alignment.Center
                         ) {
                             Icon(
                                 modifier = Modifier
-                                    .size(40.dp),
+                                    .size(size.extraExtraExtraLarge),
                                 imageVector = Icons.AutoMirrored.Rounded.KeyboardArrowLeft,
                                 contentDescription = "back button",
                                 tint = Color.White
@@ -194,24 +210,24 @@ private fun FoodDetailScreen(
 
                         Box(
                             modifier = Modifier
-                                .size(40.dp)
+                                .size(size.extraExtraExtraLarge)
                                 .background(
                                     color = Color.White,
-                                    shape = RoundedCornerShape(ThemeConstants.Dimensions.defaultCornerRadius)
+                                    shape = RoundedCornerShape(size.extraExtraSmall)
                                 )
                                 .border(
                                     width = 1.dp,
-                                    color = ThemeConstants.Colors.BorderColor,
-                                    shape = RoundedCornerShape(ThemeConstants.Dimensions.defaultCornerRadius)
+                                    color = SilverChalice,
+                                    shape = RoundedCornerShape(size.extraExtraSmall)
                                 ),
                             contentAlignment = Alignment.Center
                         ) {
                             Icon(
                                 modifier = Modifier
-                                    .size(24.dp),
+                                    .size(size.medium),
                                 imageVector = ImageVector.vectorResource(R.drawable.setting_2),
                                 contentDescription = "settings button",
-                                tint = ThemeConstants.Colors.IconColor
+                                tint = CharlestonGreen
                             )
                         }
                     }
@@ -238,10 +254,10 @@ private fun FoodDetailScreen(
 
                 Surface(
                     shape = RoundedCornerShape(
-                        topEnd = 24.dp,
-                        topStart = 24.dp,
+                        topEnd = size.medium,
+                        topStart = size.medium,
                         bottomEnd = 0.dp,
-                        bottomStart = 0f.dp
+                        bottomStart = 0.dp
                     ),
                     color = Color.White,
                 ) {
@@ -257,7 +273,7 @@ private fun FoodDetailScreen(
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(horizontal = 24.dp),
+                                .padding(horizontal = space.extraLarge),
                             horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
@@ -268,19 +284,19 @@ private fun FoodDetailScreen(
                                     painter = painterResource(R.drawable.ic_food_user_satisfaction),
                                     contentDescription = "user satisfaction icon",
                                     modifier = Modifier
-                                        .size(24.dp),
+                                        .size(size.medium),
                                 )
                                 Spacer(
                                     modifier = Modifier
-                                        .width(8.dp)
+                                        .width(size.extraExtraExtraSmall)
                                 )
                                 Text(
                                     text = "75% (User satisfaction)",
                                     style = TextStyle(
-                                        fontFamily = ThemeConstants.CoachFont.inter,
+                                        fontFamily = font_medium,
                                         fontWeight = FontWeight.Normal,
-                                        fontSize = 16.sp,
-                                        color = ThemeConstants.Colors.LabelColor
+                                        fontSize = fontSize.small,
+                                        color = Quartz
                                     )
                                 )
 
@@ -294,19 +310,19 @@ private fun FoodDetailScreen(
                                     painter = painterResource(R.drawable.ic_food_user_rating),
                                     contentDescription = "user satisfaction icon",
                                     modifier = Modifier
-                                        .size(24.dp),
+                                        .size(size.medium),
                                 )
                                 Spacer(
                                     modifier = Modifier
-                                        .width(8.dp)
+                                        .width(size.extraExtraExtraSmall)
                                 )
                                 Text(
                                     text = "4.5/5",
                                     style = TextStyle(
-                                        fontFamily = ThemeConstants.CoachFont.inter,
+                                        fontFamily = font_medium,
                                         fontWeight = FontWeight.Normal,
-                                        fontSize = 16.sp,
-                                        color = ThemeConstants.Colors.LabelColor
+                                        fontSize = fontSize.small,
+                                        color = Quartz
                                     )
                                 )
 
@@ -315,77 +331,77 @@ private fun FoodDetailScreen(
 
                         Spacer(
                             modifier = Modifier
-                                .height(32.dp)
+                                .height(size.extraLarge)
                         )
 
                         Column(
                             modifier = Modifier
-                                .padding(horizontal = 24.dp),
+                                .padding(horizontal = space.extraLarge),
                             verticalArrangement = Arrangement.Center
                         ) {
                             Text(
                                 text = "Spicy noodles",
                                 style = TextStyle(
-                                    fontFamily = ThemeConstants.CoachFont.inter,
+                                    fontFamily = font_bold,
                                     fontWeight = FontWeight.Bold,
-                                    fontSize = 18.sp,
-                                    color = ThemeConstants.Colors.TitleColor
+                                    fontSize = fontSize.medium,
+                                    color = OuterSpace
                                 )
                             )
 
                             Spacer(
                                 modifier = Modifier
-                                    .height(16.dp)
+                                    .height(size.extraSmall)
                             )
 
                             Text(
-                                text = stringResource(R.string.food_detail_test_body),
+                                text = stringResource(com.rahim.coach.library.designsystem.R.string.food_detail_test_body),
                                 style = TextStyle(
-                                    fontFamily = ThemeConstants.CoachFont.inter,
+                                    fontFamily = font_medium,
                                     fontWeight = FontWeight.Normal,
-                                    fontSize = 13.sp,
-                                    color = ThemeConstants.Colors.BodyColor
+                                    fontSize = fontSize.default,
+                                    color = DarkSilver
                                 )
                             )
                         }
 
                         Spacer(
                             modifier = Modifier
-                                .height(24.dp)
+                                .height(size.medium)
                         )
 
                         FoodDetailTabs(
                             modifier = Modifier
-                                .padding(horizontal = 24.dp),
+                                .padding(horizontal = space.extraLarge),
                         )
                         Spacer(
                             modifier = Modifier
-                                .height(24.dp)
+                                .height(size.medium)
                         )
                         CoachButton(
                             modifier = Modifier
-                                .padding(horizontal = 24.dp),
+                                .padding(horizontal = space.extraLarge),
                             title = "Add"
                         ) { }
                         Spacer(
                             modifier = Modifier
-                                .height(24.dp)
+                                .height(size.medium)
                         )
 
                         StripedTitle(
                             modifier = Modifier
-                                .padding(horizontal = 24.dp),
+                                .padding(horizontal = space.extraLarge),
                             text = "Related items",
                         )
                         Spacer(
                             modifier = Modifier
-                                .height(24.dp)
+                                .height(size.medium)
                         )
 
                         LazyRow(
-                            contentPadding = PaddingValues(horizontal = 24.dp),
+                            contentPadding = PaddingValues(horizontal = space.extraLarge),
                             verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(16.dp),
+                            horizontalArrangement = Arrangement.spacedBy(space.medium),
                         ) {
                             items(
                                 count = 5
@@ -402,7 +418,7 @@ private fun FoodDetailScreen(
 
                         Spacer(
                             modifier = Modifier
-                                .height(24.dp)
+                                .height(size.medium)
                         )
                     }
 
@@ -428,7 +444,7 @@ private fun FoodDetailScreen(
                         contentDescription = "Card Image",
                         modifier = Modifier
                             .size(225.dp)
-                            .padding(16.dp),
+                            .padding(space.medium),
                         contentScale = ContentScale.Fit
                     )
                 }
@@ -444,6 +460,11 @@ private fun FoodDetailScreen(
 fun FoodDetailTabs(
     modifier: Modifier = Modifier
 ) {
+
+    val size = LocalSize.current
+    val space = LocalSpacing.current
+    val fontSize = LocalFontSize.current
+
     var selectedTabIndex by remember { mutableStateOf(1) } // Default to "Recipe"
 
     val tabTitles = listOf("Nutritional value", "Recipe", "Ingredients")
@@ -461,7 +482,7 @@ fun FoodDetailTabs(
                     Modifier
                         .tabIndicatorOffset(tabPositions[selectedTabIndex])
                         .height(3.dp),
-                    color = ThemeConstants.Colors.CoachGreen
+                    color = CaribbeanGreen
                 )
             },
             divider = {}
@@ -474,8 +495,8 @@ fun FoodDetailTabs(
                         Text(
                             text = title,
                             fontWeight = FontWeight.Bold,
-                            fontSize = 12.sp,
-                            color = if (selectedTabIndex == index) ThemeConstants.Colors.TitleColor else ThemeConstants.Colors.LabelColor
+                            fontSize = fontSize.default,
+                            color = if (selectedTabIndex == index) OuterSpace else Quartz
                         )
                     }
                 )
@@ -494,48 +515,55 @@ fun FoodDetailTabs(
 
 @Composable
 fun NutritionalValueContent() {
+    val fontSize = LocalFontSize.current
+    val space = LocalSpacing.current
+
     Text(
         text = "Nutritional information goes here",
         style = TextStyle(
-            fontFamily = ThemeConstants.CoachFont.inter,
+            fontFamily = font_medium,
             fontWeight = FontWeight.Normal,
-            fontSize = 13.sp,
-            color = ThemeConstants.Colors.BodyColor
+            fontSize = fontSize.default,
+            color = DarkSilver
         ),
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier.padding(space.medium)
     )
 }
 
 @Composable
 fun RecipeContent() {
-    Column(modifier = Modifier.padding(16.dp)) {
+    val fontSize = LocalFontSize.current
+    val space = LocalSpacing.current
+    val size = LocalSize.current
+
+    Column(modifier = Modifier.padding(space.medium)) {
         Text(
             text = "1. Cooking the noodles: Boil the noodles in salted water, then drain and rinse with cold water.",
             style = TextStyle(
-                fontFamily = ThemeConstants.CoachFont.inter,
+                fontFamily = font_medium,
                 fontWeight = FontWeight.Normal,
-                fontSize = 13.sp,
-                color = ThemeConstants.Colors.BodyColor
+                fontSize = fontSize.default,
+                color = DarkSilver
             )
         )
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(space.extraSmall))
         Text(
             text = "2. Sautéing: Sauté the vegetables in a little oil until they are soft.",
             style = TextStyle(
-                fontFamily = ThemeConstants.CoachFont.inter,
+                fontFamily = font_medium,
                 fontWeight = FontWeight.Normal,
-                fontSize = 13.sp,
-                color = ThemeConstants.Colors.BodyColor
+                fontSize = fontSize.default,
+                color = DarkSilver
             )
         )
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(size.extraExtraExtraSmall))
         Text(
             text = "3. Combining: Add the noodles and sauces (such as soy sauce or tomato sauce) to the vegetables and season with spices.",
             style = TextStyle(
-                fontFamily = ThemeConstants.CoachFont.inter,
+                fontFamily = font_medium,
                 fontWeight = FontWeight.Normal,
-                fontSize = 13.sp,
-                color = ThemeConstants.Colors.BodyColor
+                fontSize = fontSize.default,
+                color = DarkSilver
             )
         )
     }
@@ -544,15 +572,19 @@ fun RecipeContent() {
 
 @Composable
 fun IngredientsContent() {
+
+    val fontSize = LocalFontSize.current
+    val space = LocalSpacing.current
+
     Text(
         text = "List of ingredients goes here",
         style = TextStyle(
-            fontFamily = ThemeConstants.CoachFont.inter,
+            fontFamily = font_medium,
             fontWeight = FontWeight.Normal,
-            fontSize = 13.sp,
-            color = ThemeConstants.Colors.BodyColor
+            fontSize = fontSize.default,
+            color = DarkSilver
         ),
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier.padding(space.medium)
     )
 }
 

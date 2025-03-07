@@ -32,7 +32,6 @@ import com.rahim.coach.library.designsystem.R
 import com.rahim.coach.library.designsystem.theme.CaribbeanGreen
 import com.rahim.coach.library.designsystem.theme.MediumAquamarine
 import com.rahim.coach.library.designsystem.theme.OuterSpace
-import com.rahim.coach.library.designsystem.theme.ThemeConstants
 import com.rahim.coach.library.designsystem.theme.font_bold
 import com.rahim.coach.library.designsystem.theme.font_standard
 
@@ -61,7 +60,7 @@ fun CarouselCard(
         colors = CardDefaults.cardColors(
             containerColor = Color.White
         ),
-        elevation = CardDefaults.elevatedCardElevation(defaultElevation = ThemeConstants.DEF_CARD_ELEVATION)
+        elevation = CardDefaults.elevatedCardElevation(defaultElevation = size.default)
     ) {
         Column {
             // Image Section

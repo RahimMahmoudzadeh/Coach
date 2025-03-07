@@ -1,4 +1,4 @@
-package com.rahim.coach.feature.home.components
+package com.rahim.coach.library.designsystem.base
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Arrangement
@@ -18,10 +18,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.rahim.coach.library.designsystem.base.LocalFontSize
-import com.rahim.coach.library.designsystem.base.LocalSize
-import com.rahim.coach.library.designsystem.base.LocalSpacing
 import com.rahim.coach.library.designsystem.theme.OuterSpace
 import com.rahim.coach.library.designsystem.theme.font_bold
 
