@@ -1,5 +1,6 @@
 package com.rahim.coach.feature.home
 
+import CustomOvalBottomShapeContainer
 import android.annotation.SuppressLint
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -30,13 +31,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.rahim.coach.feature.home.components.CustomOvalBottomShapeContainer
-import com.rahim.coach.feature.home.components.HomeConstants
 import com.rahim.coach.library.designsystem.R
 import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize

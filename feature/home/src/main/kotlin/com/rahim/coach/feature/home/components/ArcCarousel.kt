@@ -59,10 +59,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.util.lerp
-import com.rahim.coach.feature.home.R
 import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
+import com.rahim.coach.library.designsystem.theme.AeroBlue
+import com.rahim.coach.library.designsystem.theme.CaribbeanGreen
+import com.rahim.coach.library.designsystem.theme.OuterSpace
+import com.rahim.coach.library.designsystem.theme.SilverChalice
+import com.rahim.coach.library.designsystem.theme.font_bold
+import com.rahim.coach.library.designsystem.theme.font_medium
 import kotlinx.coroutines.launch
 import kotlin.math.abs
 import kotlin.math.absoluteValue
@@ -271,17 +276,17 @@ fun CarouselCard(
         Column {
             // Image Section
             Image(
-                painter = painterResource(R.drawable.food),
+                painter = painterResource(com.rahim.coach.library.designsystem.R.drawable.food),
                 contentDescription = "Card Image",
                 modifier = Modifier
-                    .padding(space.default)
+                    .padding(space.hairline)
                     .clip(RoundedCornerShape(size.extraSmall))
                     .fillMaxWidth()
                     .height(150.dp),
                 contentScale = ContentScale.Crop
             )
 
-            Spacer(modifier = Modifier.height(size.extraSmall))
+            Spacer(modifier = Modifier.height(size.extraExtraExtraSmall))
 
             // Text Section
             Column(
@@ -292,18 +297,20 @@ fun CarouselCard(
                 Text(
                     text = title,
                     style = TextStyle(
+                        fontFamily = font_bold,
                         fontWeight = FontWeight.Bold,
                         fontSize = fontSize.default,
-                        color = MaterialTheme.colorScheme.onSecondary
+                        color = OuterSpace
                     )
                 )
                 Spacer(modifier = Modifier.height(size.default))
                 Text(
                     text = description,
                     style = TextStyle(
+                        fontFamily = font_medium,
                         fontWeight = FontWeight.Normal,
-                        fontSize = 8.sp,
-                            color = MaterialTheme.colorScheme.primaryContainer
+                        fontSize = fontSize.extraExtraSmall,
+                        color = SilverChalice
                     )
                 )
             }
@@ -323,7 +330,7 @@ fun CarouselCard(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Icon(
-                        painter = painterResource(id = R.drawable.ic_clock),
+                        painter = painterResource(id = com.rahim.coach.library.designsystem.R.drawable.ic_clock),
                         contentDescription = "Duration Icon",
                         tint = Color.Gray,
                         modifier = Modifier.size(size.small)
@@ -334,8 +341,9 @@ fun CarouselCard(
                     Text(
                         text = duration,
                         style = TextStyle(
+                            fontFamily = font_medium,
                             fontWeight = FontWeight.Normal,
-                            fontSize = 8.sp,
+                            fontSize = fontSize.extraExtraSmall,
                             color = Color.Gray
                         )
                     )
@@ -346,17 +354,17 @@ fun CarouselCard(
                     modifier = Modifier
                         .size(size.large)
                         .background(
-                            color = Color(0xFFD0FCEA),
+                            color = AeroBlue,
                             shape = RoundedCornerShape(size.extraExtraSmall)
                         )
-                        .padding(space.default)
+                        .padding(space.extraSmall)
                         .clickable { onAddClick() },
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
-                        painter = painterResource(id = R.drawable.round_add_24),
+                        painter = painterResource(id = com.rahim.coach.library.designsystem.R.drawable.round_add_24),
                         contentDescription = "Add Icon",
-                        tint = MaterialTheme.colorScheme.primary,
+                        tint = CaribbeanGreen,
                         modifier = Modifier.size(size.extraSmall)
                     )
                 }

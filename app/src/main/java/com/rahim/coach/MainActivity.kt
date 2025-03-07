@@ -132,7 +132,7 @@ class MainActivity : ComponentActivity() {
                                             .padding(space.extraSmall).clickable(onClick = {
                                                 coroutineScope.launch { drawerState.open() }
                                             }),
-                                        imageVector = ImageVector.vectorResource(R.drawable.menu),
+                                        imageVector = ImageVector.vectorResource(com.rahim.coach.library.designsystem.R.drawable.menu),
                                         contentDescription = "app logo",
                                         tint = MaterialTheme.colorScheme.onPrimaryContainer
                                     )
@@ -149,7 +149,7 @@ class MainActivity : ComponentActivity() {
                                                 shape = RoundedCornerShape(size.extraExtraSmall)
                                             )
                                             .padding(space.extraSmall),
-                                        imageVector = ImageVector.vectorResource(R.drawable.setting_2),
+                                        imageVector = ImageVector.vectorResource(com.rahim.coach.library.designsystem.R.drawable.setting_2),
                                         contentDescription = "app logo",
                                         tint = MaterialTheme.colorScheme.onPrimaryContainer
                                     )

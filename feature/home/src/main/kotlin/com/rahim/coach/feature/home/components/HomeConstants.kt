@@ -28,14 +28,14 @@ object HomeConstants {
         PromoSlide(
             backgroundColor = Color(0xFFFF9800), // Orange
             secondaryColor = Color(0xFFFFC107),  // Lighter orange
-            imageRes = R.drawable.food, // e.g. bananas + coconut
+            imageRes = com.rahim.coach.library.designsystem.R.drawable.food, // e.g. bananas + coconut
             smallTitle = "Today is a different..",
             bigTitle = "Special finger ..."
         ),
         PromoSlide(
             backgroundColor = Color(0xFF2196F3), // Blue
             secondaryColor = Color(0xFF64B5F6),  // Lighter blue
-            imageRes = R.drawable.food,
+            imageRes = com.rahim.coach.library.designsystem.R.drawable.food,
             smallTitle = "Daily sports",
             bigTitle = "Stay with Coach"
         ),
@@ -43,14 +43,14 @@ object HomeConstants {
 
     val demoFoodCardItems = listOf(
         FoodCardItem(
-            imageRes = R.drawable.food,
+            imageRes = com.rahim.coach.library.designsystem.R.drawable.food,
             title = "Noodles with spicy seasoning",
             subtitle = "Rice, various vegetables",
             time = "60 minutes",
             calories = "24 calories"
         ),
         FoodCardItem(
-            imageRes = R.drawable.food,
+            imageRes = com.rahim.coach.library.designsystem.R.drawable.food,
             title = "Noodles with spicy seasoning",
             subtitle = "Rice, various vegetables",
             time = "60 minutes",
@@ -58,7 +58,7 @@ object HomeConstants {
             isFavorite = true
         ),
         FoodCardItem(
-            imageRes = R.drawable.food,
+            imageRes = com.rahim.coach.library.designsystem.R.drawable.food,
             title = "Noodles with spicy seasoning",
             subtitle = "Rice, various vegetables",
             time = "60 minutes",
@@ -66,7 +66,7 @@ object HomeConstants {
             isFavorite = true
         ),
         FoodCardItem(
-            imageRes = R.drawable.food,
+            imageRes = com.rahim.coach.library.designsystem.R.drawable.food,
             title = "Noodles with spicy seasoning",
             subtitle = "Rice, various vegetables",
             time = "60 minutes",
@@ -74,7 +74,7 @@ object HomeConstants {
             isFavorite = true
         ),
         FoodCardItem(
-            imageRes = R.drawable.food,
+            imageRes = com.rahim.coach.library.designsystem.R.drawable.food,
             title = "Noodles with spicy seasoning",
             subtitle = "Rice, various vegetables",
             time = "60 minutes",

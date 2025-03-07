@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
+import com.rahim.coach.library.designsystem.theme.CaribbeanGreen
 
 @Composable
 fun HighlightsSection(items: List<HighlightItem>, modifier: Modifier = Modifier) {
@@ -79,7 +80,7 @@ fun HighlightsSection(items: List<HighlightItem>, modifier: Modifier = Modifier)
                     Icon(
                         painter = painterResource(id = item.icon),
                         contentDescription = item.label,
-                        tint = if (item.isSelected) MaterialTheme.colorScheme.primary else Color.Gray,
+                        tint = if (item.isSelected) CaribbeanGreen else Color.Gray,
                         modifier = Modifier.size(size.extraLarge)
                     )
                     Spacer(modifier = Modifier.height(size.default))

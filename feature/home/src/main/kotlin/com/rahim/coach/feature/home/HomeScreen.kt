@@ -1,31 +1,24 @@
 package com.rahim.coach.feature.home
 
-import androidx.compose.foundation.Image
+import CustomOvalBottomShapeContainer
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableDoubleStateOf
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -38,19 +31,20 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.rahim.coach.feature.home.components.ActivityCard
-import com.rahim.coach.feature.home.components.CustomOvalBottomShapeContainer
 import com.rahim.coach.feature.home.components.FoodCardList
 import com.rahim.coach.feature.home.components.HighlightItem
 import com.rahim.coach.feature.home.components.HighlightsSection
 import com.rahim.coach.feature.home.components.HomeConstants
 import com.rahim.coach.feature.home.components.InteractiveArcCarousel
 import com.rahim.coach.feature.home.components.PromoPager
-import com.rahim.coach.feature.home.components.StripedTitle
+import com.rahim.coach.library.designsystem.base.StripedTitle
+import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
+import com.rahim.coach.library.designsystem.theme.CaribbeanGreen
 import com.rahim.coach.library.designsystem.theme.CoachTheme
+import com.rahim.coach.library.designsystem.theme.font_medium
 import kotlin.math.max
 
 
@@ -61,14 +55,23 @@ internal fun HomeRoute() {
 
 @Composable
 private fun HomeScreen() {
-
+    val size = LocalSize.current
+    val space = LocalSpacing.current
+    val fontSize = LocalFontSize.current
     val configuration = LocalConfiguration.current
     val density = LocalDensity.current
 
     val scrollState = rememberScrollState()
     val screenWidth by remember(configuration) { mutableIntStateOf(configuration.screenWidthDp) }
     val screenHeight by remember(configuration) { mutableIntStateOf(configuration.screenHeightDp) }
-    val ovalHeight by remember(configuration) { mutableDoubleStateOf((max(screenHeight, screenWidth) * 0.55)) }
+    val ovalHeight by remember(configuration) {
+        mutableDoubleStateOf(
+            (max(
+                screenHeight,
+                screenWidth
+            ) * 0.55)
+        )
+    }
 
     val primaryArcCarouselItems = remember {
         mutableStateOf(HomeConstants.primaryArcCarouselItemsSample)
@@ -87,15 +90,23 @@ private fun HomeScreen() {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(ovalHeight.dp),
-            backgroundColor = MaterialTheme.colorScheme.primary,
-            ovalHeight = with(density) { (ovalHeight * 0.70f).dp.toPx() }
+            backgroundColor = CaribbeanGreen,
+            ovalHeight = with(density) { (ovalHeight * 0.73f).dp.toPx() }
         ) {
+
+
 
             Column(
                 modifier = Modifier
                     .align(Alignment.TopCenter),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+
+                Spacer(
+                    modifier = Modifier
+                        .height(space.extraExtraLarge)
+                )
+
                 InteractiveArcCarousel(
                     modifier = Modifier,
                     primaryItems = primaryArcCarouselItems.value,
@@ -124,16 +135,25 @@ private fun HomeScreen() {
                 .width((screenWidth * 0.75f).dp)
                 .height(130.dp),
             items = listOf(
-                HighlightItem(R.drawable.ic_muscle, "exercises"),
                 HighlightItem(
-                    R.drawable.ic_measuring_tape,
+                    com.rahim.coach.library.designsystem.R.drawable.ic_muscle,
+                    "exercises"
+                ),
+                HighlightItem(
+                    com.rahim.coach.library.designsystem.R.drawable.ic_measuring_tape,
                     "size",
                     isSelected = true
                 ), // Just an example
-                HighlightItem(R.drawable.ic_gym_report, "program"),
-                HighlightItem(R.drawable.ic_earphone, "music"),
-                HighlightItem(R.drawable.ic_boxing_glove, "exercise"),
-                HighlightItem(R.drawable.ic_juice, "food"),
+                HighlightItem(
+                    com.rahim.coach.library.designsystem.R.drawable.ic_gym_report,
+                    "program"
+                ),
+                HighlightItem(com.rahim.coach.library.designsystem.R.drawable.ic_earphone, "music"),
+                HighlightItem(
+                    com.rahim.coach.library.designsystem.R.drawable.ic_boxing_glove,
+                    "exercise"
+                ),
+                HighlightItem(com.rahim.coach.library.designsystem.R.drawable.ic_juice, "food"),
             )
         )
 
@@ -150,22 +170,23 @@ private fun HomeScreen() {
 
         Spacer(
             modifier = Modifier
-                .height(24.dp)
+                .height(space.extraLarge)
         )
 
         ActivityCard(
             modifier = Modifier
-                .padding(horizontal = 24.dp),
-            icon = painterResource(R.drawable.img_daily_activity),
+                .padding(horizontal = space.extraLarge),
+            icon = painterResource(com.rahim.coach.library.designsystem.R.drawable.img_daily_activity),
             title = "Daily activities",
             subtitle = "Daily activity: maximum 60 minutes per day",
-            buttonIcon = painterResource(R.drawable.round_add_24),
+            buttonIcon = painterResource(com.rahim.coach.library.designsystem.R.drawable.round_add_24),
             topRightContent = {
                 Text(
                     text = "Calories 0",
                     style = TextStyle(
+                        fontFamily = font_medium,
                         fontWeight = FontWeight.Normal,
-                        fontSize = 12.sp,
+                        fontSize = fontSize.default,
                         color = Color.Gray
                     )
                 )
@@ -174,16 +195,16 @@ private fun HomeScreen() {
 
         Spacer(
             modifier = Modifier
-                .height(24.dp)
+                .height(space.extraLarge)
         )
 
         ActivityCard(
             modifier = Modifier
-                .padding(horizontal = 24.dp),
-            icon = painterResource(R.drawable.img_wheel_fortune),
+                .padding(horizontal = space.extraLarge),
+            icon = painterResource(com.rahim.coach.library.designsystem.R.drawable.img_wheel_fortune),
             title = "Wheel of Fortune",
             subtitle = "Wheel of Fortune: Spin every day...",
-            buttonIcon = painterResource(R.drawable.round_add_24),
+            buttonIcon = painterResource(com.rahim.coach.library.designsystem.R.drawable.round_add_24),
             topRightContent = {
                 Row(
                     verticalAlignment = Alignment.CenterVertically
@@ -191,8 +212,9 @@ private fun HomeScreen() {
                     Text(
                         text = "💎 +20",
                         style = TextStyle(
+                            fontFamily = font_medium,
                             fontWeight = FontWeight.Normal,
-                            fontSize = 12.sp,
+                            fontSize = fontSize.medium,
                             color = Color.Gray
                         )
                     )
@@ -202,7 +224,7 @@ private fun HomeScreen() {
 
         Spacer(
             modifier = Modifier
-                .height(24.dp)
+                .height(space.extraLarge)
         )
 
         StripedTitle(
@@ -210,29 +232,30 @@ private fun HomeScreen() {
         )
         Spacer(
             modifier = Modifier
-                .height(24.dp)
+                .height(space.extraLarge)
         )
         Text(
             modifier = Modifier
-                .padding(horizontal = 24.dp),
+                .padding(horizontal = space.extraLarge),
             text = stringResource(com.rahim.coach.library.designsystem.R.string.coach_about),
             style = TextStyle(
+                fontFamily = font_medium,
                 fontWeight = FontWeight.Normal,
-                fontSize = 14.sp,
+                fontSize = fontSize.small,
                 color = Color.Gray
             ),
             textAlign = TextAlign.Center
         )
         Spacer(
             modifier = Modifier
-                .height(24.dp)
+                .height(space.extraLarge)
         )
         StripedTitle(
             text = "The most popular of the week"
         )
         Spacer(
             modifier = Modifier
-                .height(24.dp)
+                .height(space.extraLarge)
         )
 
         FoodCardList(

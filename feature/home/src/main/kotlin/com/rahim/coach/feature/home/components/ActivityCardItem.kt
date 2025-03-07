@@ -33,6 +33,9 @@ import androidx.compose.ui.unit.sp
 import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
+import com.rahim.coach.library.designsystem.theme.CaribbeanGreen
+import com.rahim.coach.library.designsystem.theme.DarkCharcoal
+import com.rahim.coach.library.designsystem.theme.font_standard
 
 data class HighlightItem(
     val icon: Int,
@@ -59,7 +62,6 @@ fun ActivityCard(
     Card(
         modifier = modifier,
         shape = RoundedCornerShape(size.extraSmall),
-        // You can tweak elevation or card colors as needed
         elevation = CardDefaults.cardElevation(defaultElevation = HomeConstants.DEF_CARD_ELEVATION),
         colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
@@ -89,7 +91,7 @@ fun ActivityCard(
                     Icon(
                         painter = icon,
                         contentDescription = null,
-                        tint = Color.Unspecified, // If your icon is colored already
+                        tint = Color.Unspecified,
                         modifier = Modifier.size(size.extraExtraExtraLarge)
                     )
 
@@ -100,7 +102,7 @@ fun ActivityCard(
                         style = TextStyle(
                             fontWeight = FontWeight.SemiBold,
                             fontSize = fontSize.small,
-                            color = Color(0xFF333333)
+                            color = DarkCharcoal
                         )
                     )
 
@@ -128,6 +130,7 @@ fun ActivityCard(
                     Text(
                         text = subtitle,
                         style = TextStyle(
+                            fontFamily = font_standard,
                             fontWeight = FontWeight.Normal,
                             fontSize = fontSize.small,
                             color = Color.Gray
@@ -140,7 +143,7 @@ fun ActivityCard(
                         modifier = Modifier
                             .size(size.small)
                             .clip(CircleShape)
-                            .background(Color(0xFF00C853)) // bright green
+                            .background(CaribbeanGreen)
                             .clickable { onButtonClick() },
                         contentAlignment = Alignment.Center
                     ) {
