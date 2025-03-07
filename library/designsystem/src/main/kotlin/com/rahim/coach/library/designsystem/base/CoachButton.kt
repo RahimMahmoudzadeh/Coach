@@ -21,6 +21,11 @@ fun CoachButton(
     title: String,
     onClick: () -> Unit
 ) {
+
+    val size = LocalSize.current
+    val space = LocalSpacing.current
+    val fontSize = LocalFontSize.current
+
     Button(
         onClick = onClick,
         shape = RoundedCornerShape(ThemeConstants.Dimensions.defaultCornerRadius),
@@ -30,11 +35,11 @@ fun CoachButton(
         ),
         modifier = modifier
             .fillMaxWidth()
-            .height(56.dp)
+            .height(size.extraExtraExtraHuge)
     ) {
         Text(
             text = title,
-            fontSize = 14.sp,
+            fontSize = fontSize.small,
             fontWeight = FontWeight.Bold,
             color = Color.White
         )
