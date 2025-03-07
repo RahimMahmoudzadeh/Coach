@@ -88,7 +88,7 @@ fun HighlightsSection(items: List<HighlightItem>, modifier: Modifier = Modifier)
                         text = item.label,
                         style = TextStyle(
                             fontWeight = FontWeight.Normal,
-                            fontSize = fontSize.extraSmall,
+                            fontSize = fontSize.default,
                             color = if (item.isSelected) Color.Black else Color.Gray
                         ),
                     )

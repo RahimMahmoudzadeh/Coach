@@ -5,6 +5,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 data class SpaceDimensions(
+    val hairline: Dp = 2.dp,
     val default: Dp = 4.dp,
     val extraSmall: Dp = 8.dp,
     val small: Dp = 12.dp,

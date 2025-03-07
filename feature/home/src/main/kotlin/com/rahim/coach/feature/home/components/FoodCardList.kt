@@ -21,6 +21,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -36,11 +37,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.rahim.coach.feature.home.R
 import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
+import com.rahim.coach.library.designsystem.theme.font_bold
+import com.rahim.coach.library.designsystem.theme.font_standard
 
 data class FoodCardItem(
     val imageRes: Int,
@@ -82,7 +83,7 @@ fun FoodCard(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(space.small),
-                cornerColor = Color(0xFF00C853), // bright green
+                cornerColor = MaterialTheme.colorScheme.primary,
                 cornerStrokeWidth = 2.dp
             )
 
@@ -116,18 +117,20 @@ fun FoodCard(
                     Text(
                         text = item.title,
                         style = TextStyle(
+                            fontFamily = font_bold,
                             fontWeight = FontWeight.SemiBold,
-                            fontSize = fontSize.extraSmall,
-                            color = Color(0xFF333333)
+                            fontSize = fontSize.default,
+                            color = MaterialTheme.colorScheme.onSecondary
                         )
                     )
                     Spacer(modifier = Modifier.height(size.default))
                     Text(
                         text = item.subtitle,
                         style = TextStyle(
+                            fontFamily = font_standard,
                             fontWeight = FontWeight.Normal,
-                            fontSize = 8.sp,
-                            color = Color.LightGray
+                            fontSize = fontSize.extraExtraSmall,
+                            color = MaterialTheme.colorScheme.onSecondary
                         )
                     )
 
@@ -138,18 +141,20 @@ fun FoodCard(
                         Text(
                             text = item.time,
                             style = TextStyle(
-                                fontWeight = FontWeight.Normal,
-                                fontSize = 10.sp,
-                                color = Color.Gray
+                                fontFamily = font_bold,
+                                fontWeight = FontWeight.SemiBold,
+                                fontSize = fontSize.default,
+                                color = MaterialTheme.colorScheme.onSecondary
                             )
                         )
                         Spacer(modifier = Modifier.width(size.extraSmall))
                         Text(
                             text = item.calories,
                             style = TextStyle(
-                                fontWeight = FontWeight.Normal,
-                                fontSize = 10.sp,
-                                color = Color.Gray
+                                fontFamily = font_bold,
+                                fontWeight = FontWeight.SemiBold,
+                                fontSize = fontSize.default,
+                                color = MaterialTheme.colorScheme.onSecondary
                             )
                         )
                     }
@@ -163,7 +168,7 @@ fun FoodCard(
             // Heart icon in top-right corner
             Icon(
                 painter = painterResource(
-                    id = R.drawable.ic_heart
+                    id = com.rahim.coach.library.designsystem.R.drawable.ic_heart
                 ),
                 contentDescription = "Favorite",
                 tint = if (item.isFavorite) Color.Red else Color.Gray,
@@ -182,15 +187,15 @@ fun FoodCard(
                     .padding(space.small)
                     .size(size.extraExtraLarge)
                     .clip(RoundedCornerShape(size.extraExtraSmall))
-                    .background(Color(0xFFE0FFE9)) // pale green
+                    .background(MaterialTheme.colorScheme.onPrimary)
                     .clickable { onAddClick() }
                     .align(Alignment.BottomEnd),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
-                    painter = painterResource(id = R.drawable.round_add_24),
+                    painter = painterResource(id = com.rahim.coach.library.designsystem.R.drawable.round_add_24),
                     contentDescription = "Add to plan",
-                    tint = Color(0xFF00C853),
+                    tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.size(size.small)
                 )
             }

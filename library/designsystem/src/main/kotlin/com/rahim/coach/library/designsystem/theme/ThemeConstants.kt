@@ -32,11 +32,7 @@ object ThemeConstants {
         val BodyColor = Color(0xFF6F6F6F)
     }
     object CoachFont {
-        val inter = FontFamily(
-            Font(com.rahim.coach.library.designsystem.R.font.inter_regular, FontWeight.Normal),
-            Font(com.rahim.coach.library.designsystem.R.font.inter_semi_bold, FontWeight.SemiBold),
-            Font(com.rahim.coach.library.designsystem.R.font.inter_bold, FontWeight.Bold),
-        )
+        val inter = font_medium
 
     }
 }
