@@ -293,7 +293,7 @@ fun CarouselCard(
                     text = title,
                     style = TextStyle(
                         fontWeight = FontWeight.Bold,
-                        fontSize = fontSize.default,
+                        fontSize = fontSize.extraSmall,
                         color = MaterialTheme.colorScheme.onSecondary
                     )
                 )

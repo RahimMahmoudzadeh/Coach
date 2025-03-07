@@ -117,7 +117,7 @@ fun FoodCard(
                         text = item.title,
                         style = TextStyle(
                             fontWeight = FontWeight.SemiBold,
-                            fontSize = fontSize.default,
+                            fontSize = fontSize.extraSmall,
                             color = Color(0xFF333333)
                         )
                     )

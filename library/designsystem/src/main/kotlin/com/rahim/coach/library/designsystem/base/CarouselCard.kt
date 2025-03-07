@@ -17,6 +17,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -31,6 +32,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.rahim.coach.library.designsystem.R
 import com.rahim.coach.library.designsystem.theme.ThemeConstants
+import com.rahim.coach.library.designsystem.theme.font_bold
+import com.rahim.coach.library.designsystem.theme.font_standard
 
 @Composable
 fun CarouselCard(
@@ -41,6 +44,11 @@ fun CarouselCard(
     onAddClick: () -> Unit,
     onCardClick: () -> Unit,
 ) {
+
+    val size = LocalSize.current
+    val space = LocalSpacing.current
+    val fontSize = LocalFontSize.current
+
     Card(
         modifier = modifier
             .size(
@@ -48,7 +56,7 @@ fun CarouselCard(
                 height = 250.dp
             )
             .clickable { onCardClick() },
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(size.extraSmall),
         colors = CardDefaults.cardColors(
             containerColor = Color.White
         ),
@@ -60,49 +68,49 @@ fun CarouselCard(
                 painter = painterResource(R.drawable.food),
                 contentDescription = "Card Image",
                 modifier = Modifier
-                    .padding(2.dp)
-                    .clip(RoundedCornerShape(16.dp))
+                    .padding(space.default)
+                    .clip(RoundedCornerShape(size.extraSmall))
                     .fillMaxWidth()
                     .height(150.dp),
                 contentScale = ContentScale.Crop
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(space.medium))
 
             // Text Section
             Column(
                 modifier = Modifier
-                    .padding(horizontal = 10.dp)
+                    .padding(horizontal = space.small)
                     .fillMaxWidth()
             ) {
                 Text(
                     text = title,
                     style = TextStyle(
-                        fontFamily = ThemeConstants.CoachFont.inter,
+                        fontFamily = font_bold,
                         fontWeight = FontWeight.Bold,
-                        fontSize = 12.sp,
-                        color = ThemeConstants.Colors.TitleColor
+                        fontSize = fontSize.extraSmall,
+                        color = MaterialTheme.colorScheme.onSecondary
                     )
                 )
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(space.default))
                 Text(
                     text = description,
                     style = TextStyle(
-                        fontFamily = ThemeConstants.CoachFont.inter,
+                        fontFamily = font_standard,
                         fontWeight = FontWeight.Normal,
-                        fontSize = 8.sp,
-                        color = ThemeConstants.Colors.LabelColor
+                        fontSize = fontSize.default,
+                        color = MaterialTheme.colorScheme.onSecondary
                     )
                 )
             }
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(space.small))
 
             // Bottom Section
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 8.dp),
+                    .padding(horizontal = space.extraSmall),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
@@ -114,18 +122,18 @@ fun CarouselCard(
                         painter = painterResource(id = R.drawable.ic_clock),
                         contentDescription = "Duration Icon",
                         tint = Color.Gray,
-                        modifier = Modifier.size(18.dp)
+                        modifier = Modifier.size(size.small)
                     )
 
-                    Spacer(modifier = Modifier.width(4.dp))
+                    Spacer(modifier = Modifier.width(space.default))
 
                     Text(
                         text = duration,
                         style = TextStyle(
-                            fontFamily = ThemeConstants.CoachFont.inter,
+                            fontFamily = font_standard,
                             fontWeight = FontWeight.Normal,
-                            fontSize = 8.sp,
-                            color = Color.Gray
+                            fontSize = fontSize.default,
+                            color = MaterialTheme.colorScheme.onSecondary
                         )
                     )
                 }
@@ -133,12 +141,12 @@ fun CarouselCard(
                 // Add Button
                 Box(
                     modifier = Modifier
-                        .size(28.dp)
+                        .size(size.large)
                         .background(
-                            color = Color(0xFFD0FCEA),
-                            shape = RoundedCornerShape(12.dp)
+                            color = MaterialTheme.colorScheme.onPrimary,
+                            shape = RoundedCornerShape(size.extraSmall)
                         )
-                        .padding(2.dp)
+                        .padding(space.default)
                         .clickable { onAddClick() },
                     contentAlignment = Alignment.Center
                 ) {
@@ -146,12 +154,12 @@ fun CarouselCard(
                         painter = painterResource(id = R.drawable.round_add_24),
                         contentDescription = "Add Icon",
                         tint = ThemeConstants.Colors.CoachGreen,
-                        modifier = Modifier.size(16.dp)
+                        modifier = Modifier.size(size.extraSmall)
                     )
                 }
             }
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(space.extraSmall))
         }
     }
 }
