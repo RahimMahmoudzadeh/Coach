@@ -29,12 +29,22 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.rahim.coach.library.designsystem.base.LocalFontSize
+import com.rahim.coach.library.designsystem.base.LocalSize
+import com.rahim.coach.library.designsystem.base.LocalSpacing
+import com.rahim.coach.library.designsystem.theme.font_bold
+import com.rahim.coach.library.designsystem.theme.font_medium
 
 @Composable
 fun PromoCard(
     slide: PromoSlide,
     modifier: Modifier = Modifier,
 ) {
+
+    val size = LocalSize.current
+    val space = LocalSpacing.current
+    val fontSize = LocalFontSize.current
+
     Box(
         contentAlignment = Alignment.Center
     ) {
@@ -43,7 +53,7 @@ fun PromoCard(
         Box(
             modifier = modifier
                 .fillMaxWidth()
-                .clip(RoundedCornerShape(16.dp))
+                .clip(RoundedCornerShape(space.medium))
                 .background(
                     brush = Brush.horizontalGradient(
                         colors = listOf(slide.backgroundColor, slide.secondaryColor)
@@ -56,20 +66,22 @@ fun PromoCard(
             Column(
                 modifier = Modifier
                     .align(Alignment.CenterStart)
-                    .padding(start = 16.dp, end = 80.dp)
-                    .height(120.dp), // leave space for big image on the right
+                    .padding(start = space.medium, end = 80.dp)
+                    .height(120.dp),
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
                     text = slide.smallTitle,
-                    fontSize = 14.sp,
+                    fontFamily = font_medium,
+                    fontSize = fontSize.default,
                     color = Color.White,
                     fontWeight = FontWeight.Normal,
                 )
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(space.default))
                 Text(
                     text = slide.bigTitle,
-                    fontSize = 20.sp,
+                    fontFamily = font_bold,
+                    fontSize = fontSize.large,
                     color = Color.White,
                     fontWeight = FontWeight.Bold,
                 )
@@ -87,7 +99,7 @@ fun PromoCard(
                 .size(130.dp)
                 .rotate(45f)
                 .align(Alignment.CenterEnd)
-                .clip(RoundedCornerShape(25.dp))
+                .clip(RoundedCornerShape(size.medium))
 
         )
     }
@@ -99,7 +111,11 @@ fun PromoPager(
     slides: List<PromoSlide>,
     modifier: Modifier = Modifier,
 ) {
-    // Pager state holds the current page info
+
+    val size = LocalSize.current
+    val space = LocalSpacing.current
+    val fontSize = LocalFontSize.current
+
     val pagerState = rememberPagerState(initialPage = 0) {
         slides.size
     }
@@ -108,11 +124,11 @@ fun PromoPager(
         modifier = modifier,
         contentAlignment = Alignment.BottomCenter
     ) {
-        // The pager itself
+
         HorizontalPager(
             state = pagerState,
-            contentPadding = PaddingValues(horizontal = 22.dp),
-            pageSpacing = 22.dp,
+            contentPadding = PaddingValues(horizontal = space.extraLarge),
+            pageSpacing = space.extraLarge,
             modifier = Modifier
                 .fillMaxWidth()  // adjust as needed
         ) { pageIndex ->
@@ -120,22 +136,22 @@ fun PromoPager(
             PromoCard(slide = slide)
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(space.medium))
 
         // A simple dot indicator
         Row(
             modifier = Modifier
                 .padding(12.dp),
-            horizontalArrangement = Arrangement.spacedBy(6.dp)
+            horizontalArrangement = Arrangement.spacedBy(space.extraSmall)
         ) {
             repeat(slides.size) { index ->
                 val isSelected = pagerState.currentPage == index
-                val size = if (isSelected) 12.dp else 6.dp
+                val size = if (isSelected) space.medium else space.extraSmall
                 val color = if (isSelected) Color.White else Color.LightGray
 
                 Box(
                     modifier = Modifier
-                        .size(width = size, height = 6.dp)
+                        .size(width = size, height = space.extraSmall)
                         .clip(CircleShape)
                         .background(color)
                 )

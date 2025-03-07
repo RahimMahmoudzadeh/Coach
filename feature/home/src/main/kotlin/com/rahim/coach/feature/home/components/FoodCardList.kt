@@ -40,7 +40,11 @@ import androidx.compose.ui.unit.dp
 import com.rahim.coach.library.designsystem.base.LocalFontSize
 import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
+import com.rahim.coach.library.designsystem.theme.AeroBlue
+import com.rahim.coach.library.designsystem.theme.CaribbeanGreen
+import com.rahim.coach.library.designsystem.theme.OuterSpace
 import com.rahim.coach.library.designsystem.theme.font_bold
+import com.rahim.coach.library.designsystem.theme.font_medium
 import com.rahim.coach.library.designsystem.theme.font_standard
 
 data class FoodCardItem(
@@ -82,9 +86,9 @@ fun FoodCard(
             CornerAccent(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(space.small),
-                cornerColor = MaterialTheme.colorScheme.primary,
-                cornerStrokeWidth = 2.dp
+                    .padding(space.smallMedium),
+                cornerColor = CaribbeanGreen,
+                cornerStrokeWidth = space.hairline
             )
 
             // The main Row: image on left, text in middle, plus button on the far right
@@ -111,7 +115,7 @@ fun FoodCard(
                 Column(
                     modifier = Modifier
                         .weight(1f)
-                        .padding(vertical = space.small), // So the text columns fill the remaining space
+                        .padding(vertical = space.medium), // So the text columns fill the remaining space
                     verticalArrangement = Arrangement.Top
                 ) {
                     Text(
@@ -120,17 +124,17 @@ fun FoodCard(
                             fontFamily = font_bold,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = fontSize.default,
-                            color = MaterialTheme.colorScheme.onSecondary
+                            color = OuterSpace
                         )
                     )
                     Spacer(modifier = Modifier.height(size.default))
                     Text(
                         text = item.subtitle,
                         style = TextStyle(
-                            fontFamily = font_standard,
+                            fontFamily = font_medium,
                             fontWeight = FontWeight.Normal,
                             fontSize = fontSize.extraExtraSmall,
-                            color = MaterialTheme.colorScheme.onSecondary
+                            color = OuterSpace
                         )
                     )
 
@@ -144,7 +148,7 @@ fun FoodCard(
                                 fontFamily = font_bold,
                                 fontWeight = FontWeight.SemiBold,
                                 fontSize = fontSize.default,
-                                color = MaterialTheme.colorScheme.onSecondary
+                                color = OuterSpace
                             )
                         )
                         Spacer(modifier = Modifier.width(size.extraSmall))
@@ -154,7 +158,7 @@ fun FoodCard(
                                 fontFamily = font_bold,
                                 fontWeight = FontWeight.SemiBold,
                                 fontSize = fontSize.default,
-                                color = MaterialTheme.colorScheme.onSecondary
+                                color = OuterSpace
                             )
                         )
                     }
@@ -187,7 +191,7 @@ fun FoodCard(
                     .padding(space.small)
                     .size(size.extraExtraLarge)
                     .clip(RoundedCornerShape(size.extraExtraSmall))
-                    .background(MaterialTheme.colorScheme.onPrimary)
+                    .background(AeroBlue)
                     .clickable { onAddClick() }
                     .align(Alignment.BottomEnd),
                 contentAlignment = Alignment.Center
@@ -195,7 +199,7 @@ fun FoodCard(
                 Icon(
                     painter = painterResource(id = com.rahim.coach.library.designsystem.R.drawable.round_add_24),
                     contentDescription = "Add to plan",
-                    tint = MaterialTheme.colorScheme.primary,
+                    tint = CaribbeanGreen,
                     modifier = Modifier.size(size.small)
                 )
             }

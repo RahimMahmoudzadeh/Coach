@@ -41,6 +41,10 @@ import com.rahim.coach.feature.home.components.HomeConstants
 import com.rahim.coach.feature.home.components.InteractiveArcCarousel
 import com.rahim.coach.feature.home.components.PromoPager
 import com.rahim.coach.feature.home.components.StripedTitle
+import com.rahim.coach.library.designsystem.base.LocalFontSize
+import com.rahim.coach.library.designsystem.base.LocalSize
+import com.rahim.coach.library.designsystem.base.LocalSpacing
+import com.rahim.coach.library.designsystem.theme.CaribbeanGreen
 import com.rahim.coach.library.designsystem.theme.CoachTheme
 import kotlin.math.max
 
@@ -52,7 +56,9 @@ internal fun HomeRoute() {
 
 @Composable
 private fun HomeScreen() {
-
+    val size = LocalSize.current
+    val space = LocalSpacing.current
+    val fontSize = LocalFontSize.current
     val configuration = LocalConfiguration.current
     val density = LocalDensity.current
 
@@ -85,15 +91,23 @@ private fun HomeScreen() {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(ovalHeight.dp),
-            backgroundColor = MaterialTheme.colorScheme.primary,
-            ovalHeight = with(density) { (ovalHeight * 0.70f).dp.toPx() }
+            backgroundColor = CaribbeanGreen,
+            ovalHeight = with(density) { (ovalHeight * 0.73f).dp.toPx() }
         ) {
+
+
 
             Column(
                 modifier = Modifier
                     .align(Alignment.TopCenter),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+
+                Spacer(
+                    modifier = Modifier
+                        .height(space.extraExtraLarge)
+                )
+
                 InteractiveArcCarousel(
                     modifier = Modifier,
                     primaryItems = primaryArcCarouselItems.value,
