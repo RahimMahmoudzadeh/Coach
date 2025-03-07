@@ -19,6 +19,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.rahim.coach.library.designsystem.base.LocalFontSize
+import com.rahim.coach.library.designsystem.base.LocalSize
+import com.rahim.coach.library.designsystem.base.LocalSpacing
+import com.rahim.coach.library.designsystem.theme.OuterSpace
+import com.rahim.coach.library.designsystem.theme.font_bold
 
 @Composable
 fun StripedTitle(
@@ -26,6 +31,10 @@ fun StripedTitle(
     text: String,
     color: Color = MaterialTheme.colorScheme.primary,
 ) {
+    val size = LocalSize.current
+    val space = LocalSpacing.current
+    val fontSize = LocalFontSize.current
+
     Row(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
@@ -34,19 +43,20 @@ fun StripedTitle(
         // Left stripes
         TripleStripes(color = color, isLeftToRight = false)
 
-        Spacer(Modifier.width(12.dp))
+        Spacer(Modifier.width(space.small))
 
         // The title text
         Text(
             text = text,
             style = TextStyle(
+                fontFamily = font_bold,
                 fontWeight = FontWeight.Bold,
-                fontSize = 16.sp,
-                color = MaterialTheme.colorScheme.onSecondary
+                fontSize = fontSize.small,
+                color = OuterSpace
             )
         )
 
-        Spacer(Modifier.width(12.dp))
+        Spacer(Modifier.width(space.small))
 
         // Right stripes
         TripleStripes(color = color, isLeftToRight = true)
@@ -65,8 +75,13 @@ fun TripleStripes(
     slant: Dp = 5.dp,
     isLeftToRight: Boolean,
 ) {
+
+    val size = LocalSize.current
+    val space = LocalSpacing.current
+    val fontSize = LocalFontSize.current
+
     Column(
-        verticalArrangement = Arrangement.spacedBy(2.dp),
+        verticalArrangement = Arrangement.spacedBy(space.hairline),
         horizontalAlignment = if (isLeftToRight) Alignment.Start else Alignment.End
     ) {
         // Top stripe (widest)

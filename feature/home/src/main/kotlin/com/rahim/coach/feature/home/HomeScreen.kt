@@ -46,6 +46,7 @@ import com.rahim.coach.library.designsystem.base.LocalSize
 import com.rahim.coach.library.designsystem.base.LocalSpacing
 import com.rahim.coach.library.designsystem.theme.CaribbeanGreen
 import com.rahim.coach.library.designsystem.theme.CoachTheme
+import com.rahim.coach.library.designsystem.theme.font_medium
 import kotlin.math.max
 
 
@@ -171,12 +172,12 @@ private fun HomeScreen() {
 
         Spacer(
             modifier = Modifier
-                .height(24.dp)
+                .height(space.extraLarge)
         )
 
         ActivityCard(
             modifier = Modifier
-                .padding(horizontal = 24.dp),
+                .padding(horizontal = space.extraLarge),
             icon = painterResource(com.rahim.coach.library.designsystem.R.drawable.img_daily_activity),
             title = "Daily activities",
             subtitle = "Daily activity: maximum 60 minutes per day",
@@ -185,8 +186,9 @@ private fun HomeScreen() {
                 Text(
                     text = "Calories 0",
                     style = TextStyle(
+                        fontFamily = font_medium,
                         fontWeight = FontWeight.Normal,
-                        fontSize = 12.sp,
+                        fontSize = fontSize.default,
                         color = Color.Gray
                     )
                 )
@@ -195,12 +197,12 @@ private fun HomeScreen() {
 
         Spacer(
             modifier = Modifier
-                .height(24.dp)
+                .height(space.extraLarge)
         )
 
         ActivityCard(
             modifier = Modifier
-                .padding(horizontal = 24.dp),
+                .padding(horizontal = space.extraLarge),
             icon = painterResource(com.rahim.coach.library.designsystem.R.drawable.img_wheel_fortune),
             title = "Wheel of Fortune",
             subtitle = "Wheel of Fortune: Spin every day...",
@@ -212,8 +214,9 @@ private fun HomeScreen() {
                     Text(
                         text = "💎 +20",
                         style = TextStyle(
+                            fontFamily = font_medium,
                             fontWeight = FontWeight.Normal,
-                            fontSize = 12.sp,
+                            fontSize = fontSize.medium,
                             color = Color.Gray
                         )
                     )
@@ -223,7 +226,7 @@ private fun HomeScreen() {
 
         Spacer(
             modifier = Modifier
-                .height(24.dp)
+                .height(space.extraLarge)
         )
 
         StripedTitle(
@@ -231,29 +234,30 @@ private fun HomeScreen() {
         )
         Spacer(
             modifier = Modifier
-                .height(24.dp)
+                .height(space.extraLarge)
         )
         Text(
             modifier = Modifier
-                .padding(horizontal = 24.dp),
+                .padding(horizontal = space.extraLarge),
             text = stringResource(com.rahim.coach.library.designsystem.R.string.coach_about),
             style = TextStyle(
+                fontFamily = font_medium,
                 fontWeight = FontWeight.Normal,
-                fontSize = 14.sp,
+                fontSize = fontSize.small,
                 color = Color.Gray
             ),
             textAlign = TextAlign.Center
         )
         Spacer(
             modifier = Modifier
-                .height(24.dp)
+                .height(space.extraLarge)
         )
         StripedTitle(
             text = "The most popular of the week"
         )
         Spacer(
             modifier = Modifier
-                .height(24.dp)
+                .height(space.extraLarge)
         )
 
         FoodCardList(
